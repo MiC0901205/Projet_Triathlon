@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32F325FE-7F02-4B4D-BEA1-8F41FAA99ADB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Projet_Triathlon</RootNamespace>
+    <AssemblyName>Projet_Triathlon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassesMetier.cs" />
+    <Compile Include="ClassePasserelle.cs" />
+    <Compile Include="FrmControle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControle.Designer.cs">
+      <DependentUpon>FrmControle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutControle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutControle.Designer.cs">
+      <DependentUpon>FrmAjoutControle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutInscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutInscription.Designer.cs">
+      <DependentUpon>FrmAjoutInscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInscription.Designer.cs">
+      <DependentUpon>FrmInscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTriathlon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTriathlon.Designer.cs">
+      <DependentUpon>FrmTriathlon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutTriathlon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutTriathlon.Designer.cs">
+      <DependentUpon>FrmAjoutTriathlon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutTypeTriathlon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutTypeTriathlon.Designer.cs">
+      <DependentUpon>FrmAjoutTypeTriathlon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutTriathlete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutTriathlete.Designer.cs">
+      <DependentUpon>FrmAjoutTriathlete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutProdDopant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutProdDopant.Designer.cs">
+      <DependentUpon>FrmAjoutProdDopant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClassement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClassement.Designer.cs">
+      <DependentUpon>FrmClassement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTypeTriathlon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTypeTriathlon.Designer.cs">
+      <DependentUpon>FrmTypeTriathlon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProdDopant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProdDopant.Designer.cs">
+      <DependentUpon>FrmProdDopant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMDI.Designer.cs">
+      <DependentUpon>FrmMDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTriathlete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTriathlete.Designer.cs">
+      <DependentUpon>FrmTriathlete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmControle.resx">
+      <DependentUpon>FrmControle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutControle.resx">
+      <DependentUpon>FrmAjoutControle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutInscription.resx">
+      <DependentUpon>FrmAjoutInscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutProdDopant.resx">
+      <DependentUpon>FrmAjoutProdDopant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutTriathlete.resx">
+      <DependentUpon>FrmAjoutTriathlete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutTriathlon.resx">
+      <DependentUpon>FrmAjoutTriathlon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutTypeTriathlon.resx">
+      <DependentUpon>FrmAjoutTypeTriathlon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClassement.resx">
+      <DependentUpon>FrmClassement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInscription.resx">
+      <DependentUpon>FrmInscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMDI.resx">
+      <DependentUpon>FrmMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProdDopant.resx">
+      <DependentUpon>FrmProdDopant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTriathlete.resx">
+      <DependentUpon>FrmTriathlete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTriathlon.resx">
+      <DependentUpon>FrmTriathlon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTypeTriathlon.resx">
+      <DependentUpon>FrmTypeTriathlon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
