@@ -17,7 +17,21 @@ namespace Projet_Triathlon
             InitializeComponent();
         }
 
-        private void menuItemProdDopant_Click(object sender, EventArgs e)
+        private void ajoutProdMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmAjoutProdDopant"] == null)
+            {
+                FrmAjoutProdDopant unFrmAjoutProdDopant = new FrmAjoutProdDopant();
+                unFrmAjoutProdDopant.MdiParent = this;
+                unFrmAjoutProdDopant.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmAjoutProdDopant"].BringToFront();
+            }
+        }
+
+        private void gérerProdDopantProdMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmProdDopant"] == null)
             {
@@ -31,12 +45,21 @@ namespace Projet_Triathlon
             }
         }
 
-        private void menuItemQUITTER_Click(object sender, EventArgs e)
+        private void ajoutTypeTriathlonsMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Application.OpenForms["FrmAjoutTypeTriathlon"] == null)
+            {
+                FrmAjoutTypeTriathlon unFrmAjoutTypeTriathlon = new FrmAjoutTypeTriathlon();
+                unFrmAjoutTypeTriathlon.MdiParent = this;
+                unFrmAjoutTypeTriathlon.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmAjoutTypeTriathlon"].BringToFront();
+            }
         }
 
-        private void menuItemTypesTriathlons_Click(object sender, EventArgs e)
+        private void gérerTypeTriathlonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmTypeTriathlon"] == null)
             {
@@ -50,7 +73,21 @@ namespace Projet_Triathlon
             }
         }
 
-        private void menuItemTriathletes_Click(object sender, EventArgs e)
+        private void ajoutTriathletesMenuItem_Click(object sender, EventArgs e)
+        { 
+            if(Application.OpenForms["FrmAjoutTriathlete"] == null)
+            {
+                FrmAjoutTriathlete unFrmAjoutTriathlete = new FrmAjoutTriathlete();
+                unFrmAjoutTriathlete.MdiParent = this;
+                unFrmAjoutTriathlete.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmAjoutTriathlete"].BringToFront();
+            }
+        }
+
+        private void gérerTriathletesMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmTriathlete"] == null)
             {
@@ -64,7 +101,21 @@ namespace Projet_Triathlon
             }
         }
 
-        private void menuItemTriathlon_Click(object sender, EventArgs e)
+        private void ajoutTriathonsMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmAjoutTriathlon"] == null)
+            {
+                FrmAjoutTriathlon unFrmAjoutTriathlon = new FrmAjoutTriathlon();
+                unFrmAjoutTriathlon.MdiParent = this;
+                unFrmAjoutTriathlon.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmAjoutTriathlon"].BringToFront();
+            }
+        }
+
+        private void gérerTriathlonsMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmTriathlon"] == null)
             {
@@ -78,35 +129,7 @@ namespace Projet_Triathlon
             }
         }
 
-        private void menuItemInscription_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["FrmInscription"] == null)
-            {
-                FrmInscription unFrmInscription = new FrmInscription();
-                unFrmInscription.MdiParent = this;
-                unFrmInscription.Show();
-            }
-            else
-            {
-                Application.OpenForms["FrmInscription"].BringToFront();
-            }
-        }
-
-        private void menuItemControle_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["FrmControle"] == null)
-            {
-                FrmControle unFrmControle = new FrmControle();
-                unFrmControle.MdiParent = this;
-                unFrmControle.Show();
-            }
-            else
-            {
-                Application.OpenForms["FrmControle"].BringToFront();
-            }
-        }
-
-        private void menuItemClassement_Click(object sender, EventArgs e)
+        private void classementMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmClassement"] == null)
             {
@@ -118,6 +141,11 @@ namespace Projet_Triathlon
             {
                 Application.OpenForms["FrmClassement"].BringToFront();
             }
+        }
+
+        private void menuItemQUITTER_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

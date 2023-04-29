@@ -62,11 +62,11 @@
             // 
             this.grpbxLesTypesTriathlon.Controls.Add(this.btSupprimer);
             this.grpbxLesTypesTriathlon.Controls.Add(this.gridTypeTriath);
-            this.grpbxLesTypesTriathlon.Location = new System.Drawing.Point(230, 110);
-            this.grpbxLesTypesTriathlon.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbxLesTypesTriathlon.Location = new System.Drawing.Point(307, 135);
+            this.grpbxLesTypesTriathlon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpbxLesTypesTriathlon.Name = "grpbxLesTypesTriathlon";
-            this.grpbxLesTypesTriathlon.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbxLesTypesTriathlon.Size = new System.Drawing.Size(559, 329);
+            this.grpbxLesTypesTriathlon.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpbxLesTypesTriathlon.Size = new System.Drawing.Size(745, 405);
             this.grpbxLesTypesTriathlon.TabIndex = 12;
             this.grpbxLesTypesTriathlon.TabStop = false;
             this.grpbxLesTypesTriathlon.Text = "Les types de triathlon";
@@ -75,10 +75,10 @@
             // 
             this.btSupprimer.BackColor = System.Drawing.Color.OrangeRed;
             this.btSupprimer.Enabled = false;
-            this.btSupprimer.Location = new System.Drawing.Point(238, 266);
-            this.btSupprimer.Margin = new System.Windows.Forms.Padding(2);
+            this.btSupprimer.Location = new System.Drawing.Point(317, 327);
+            this.btSupprimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSupprimer.Name = "btSupprimer";
-            this.btSupprimer.Size = new System.Drawing.Size(142, 38);
+            this.btSupprimer.Size = new System.Drawing.Size(189, 47);
             this.btSupprimer.TabIndex = 6;
             this.btSupprimer.Text = "Supprimer type de triathlon";
             this.btSupprimer.UseVisualStyleBackColor = false;
@@ -96,15 +96,15 @@
             this.DistanceCyc,
             this.Column1,
             this.Column2});
-            this.gridTypeTriath.Location = new System.Drawing.Point(10, 19);
-            this.gridTypeTriath.Margin = new System.Windows.Forms.Padding(2);
+            this.gridTypeTriath.Location = new System.Drawing.Point(13, 23);
+            this.gridTypeTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridTypeTriath.MultiSelect = false;
             this.gridTypeTriath.Name = "gridTypeTriath";
             this.gridTypeTriath.ReadOnly = true;
             this.gridTypeTriath.RowHeadersWidth = 51;
             this.gridTypeTriath.RowTemplate.Height = 28;
             this.gridTypeTriath.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTypeTriath.Size = new System.Drawing.Size(549, 224);
+            this.gridTypeTriath.Size = new System.Drawing.Size(732, 276);
             this.gridTypeTriath.TabIndex = 0;
             // 
             // colNumCli
@@ -113,7 +113,7 @@
             this.colNumCli.MinimumWidth = 6;
             this.colNumCli.Name = "colNumCli";
             this.colNumCli.ReadOnly = true;
-            this.colNumCli.Width = 57;
+            this.colNumCli.Width = 69;
             // 
             // colNomCli
             // 
@@ -121,7 +121,7 @@
             this.colNomCli.MinimumWidth = 6;
             this.colNomCli.Name = "colNomCli";
             this.colNomCli.ReadOnly = true;
-            this.colNomCli.Width = 88;
+            this.colNomCli.Width = 108;
             // 
             // colPrenomCLi
             // 
@@ -129,28 +129,31 @@
             this.colPrenomCLi.MinimumWidth = 6;
             this.colPrenomCLi.Name = "colPrenomCLi";
             this.colPrenomCLi.ReadOnly = true;
-            this.colPrenomCLi.Width = 54;
+            this.colPrenomCLi.Width = 65;
             // 
             // DistanceCyc
             // 
             this.DistanceCyc.HeaderText = "DistanceCyc";
+            this.DistanceCyc.MinimumWidth = 6;
             this.DistanceCyc.Name = "DistanceCyc";
             this.DistanceCyc.ReadOnly = true;
-            this.DistanceCyc.Width = 92;
+            this.DistanceCyc.Width = 112;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "DistanceNat";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 91;
+            this.Column1.Width = 110;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "DistanceCourse";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 107;
+            this.Column2.Width = 132;
             // 
             // grpbxDetailTypeTriath
             // 
@@ -165,88 +168,84 @@
             this.grpbxDetailTypeTriath.Controls.Add(this.btModifier);
             this.grpbxDetailTypeTriath.Controls.Add(this.txtDesignation);
             this.grpbxDetailTypeTriath.Controls.Add(this.lblDesignation);
-            this.grpbxDetailTypeTriath.Location = new System.Drawing.Point(11, 110);
-            this.grpbxDetailTypeTriath.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbxDetailTypeTriath.Location = new System.Drawing.Point(15, 135);
+            this.grpbxDetailTypeTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpbxDetailTypeTriath.Name = "grpbxDetailTypeTriath";
-            this.grpbxDetailTypeTriath.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbxDetailTypeTriath.Size = new System.Drawing.Size(215, 329);
+            this.grpbxDetailTypeTriath.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpbxDetailTypeTriath.Size = new System.Drawing.Size(287, 405);
             this.grpbxDetailTypeTriath.TabIndex = 11;
             this.grpbxDetailTypeTriath.TabStop = false;
             this.grpbxDetailTypeTriath.Text = "Détail du type de triathlon";
             // 
             // txtDistanceCourse
             // 
-            this.txtDistanceCourse.Location = new System.Drawing.Point(12, 248);
-            this.txtDistanceCourse.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDistanceCourse.Location = new System.Drawing.Point(16, 305);
+            this.txtDistanceCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDistanceCourse.MaxLength = 200;
             this.txtDistanceCourse.Name = "txtDistanceCourse";
-            this.txtDistanceCourse.Size = new System.Drawing.Size(109, 20);
+            this.txtDistanceCourse.Size = new System.Drawing.Size(144, 22);
             this.txtDistanceCourse.TabIndex = 12;
             // 
             // lblDistanceCourse
             // 
             this.lblDistanceCourse.AutoSize = true;
-            this.lblDistanceCourse.Location = new System.Drawing.Point(16, 230);
-            this.lblDistanceCourse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDistanceCourse.Location = new System.Drawing.Point(21, 283);
             this.lblDistanceCourse.Name = "lblDistanceCourse";
-            this.lblDistanceCourse.Size = new System.Drawing.Size(91, 13);
+            this.lblDistanceCourse.Size = new System.Drawing.Size(112, 16);
             this.lblDistanceCourse.TabIndex = 11;
             this.lblDistanceCourse.Text = "Distance Course :";
             // 
             // txtDistanceNatation
             // 
-            this.txtDistanceNatation.Location = new System.Drawing.Point(12, 198);
-            this.txtDistanceNatation.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDistanceNatation.Location = new System.Drawing.Point(16, 244);
+            this.txtDistanceNatation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDistanceNatation.MaxLength = 200;
             this.txtDistanceNatation.Name = "txtDistanceNatation";
-            this.txtDistanceNatation.Size = new System.Drawing.Size(109, 20);
+            this.txtDistanceNatation.Size = new System.Drawing.Size(144, 22);
             this.txtDistanceNatation.TabIndex = 10;
             // 
             // lblDistanceNatation
             // 
             this.lblDistanceNatation.AutoSize = true;
-            this.lblDistanceNatation.Location = new System.Drawing.Point(16, 180);
-            this.lblDistanceNatation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDistanceNatation.Location = new System.Drawing.Point(21, 222);
             this.lblDistanceNatation.Name = "lblDistanceNatation";
-            this.lblDistanceNatation.Size = new System.Drawing.Size(98, 13);
+            this.lblDistanceNatation.Size = new System.Drawing.Size(119, 16);
             this.lblDistanceNatation.TabIndex = 9;
             this.lblDistanceNatation.Text = "Distance Natation :";
             // 
             // txtDistanceCyclisme
             // 
-            this.txtDistanceCyclisme.Location = new System.Drawing.Point(12, 147);
-            this.txtDistanceCyclisme.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDistanceCyclisme.Location = new System.Drawing.Point(16, 181);
+            this.txtDistanceCyclisme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDistanceCyclisme.MaxLength = 200;
             this.txtDistanceCyclisme.Name = "txtDistanceCyclisme";
-            this.txtDistanceCyclisme.Size = new System.Drawing.Size(109, 20);
+            this.txtDistanceCyclisme.Size = new System.Drawing.Size(144, 22);
             this.txtDistanceCyclisme.TabIndex = 8;
             // 
             // lblDistanceCyclisme
             // 
             this.lblDistanceCyclisme.AutoSize = true;
-            this.lblDistanceCyclisme.Location = new System.Drawing.Point(16, 129);
-            this.lblDistanceCyclisme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDistanceCyclisme.Location = new System.Drawing.Point(21, 159);
             this.lblDistanceCyclisme.Name = "lblDistanceCyclisme";
-            this.lblDistanceCyclisme.Size = new System.Drawing.Size(99, 13);
+            this.lblDistanceCyclisme.Size = new System.Drawing.Size(124, 16);
             this.lblDistanceCyclisme.TabIndex = 7;
             this.lblDistanceCyclisme.Text = "Distance Cyclisme :";
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(12, 98);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNom.Location = new System.Drawing.Point(16, 121);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNom.MaxLength = 200;
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(155, 20);
+            this.txtNom.Size = new System.Drawing.Size(205, 22);
             this.txtNom.TabIndex = 6;
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(16, 80);
-            this.lblNom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNom.Location = new System.Drawing.Point(21, 98);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(35, 13);
+            this.lblNom.Size = new System.Drawing.Size(42, 16);
             this.lblNom.TabIndex = 5;
             this.lblNom.Text = "Nom :";
             // 
@@ -254,30 +253,29 @@
             // 
             this.btModifier.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btModifier.Enabled = false;
-            this.btModifier.Location = new System.Drawing.Point(43, 289);
-            this.btModifier.Margin = new System.Windows.Forms.Padding(2);
+            this.btModifier.Location = new System.Drawing.Point(57, 356);
+            this.btModifier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btModifier.Name = "btModifier";
-            this.btModifier.Size = new System.Drawing.Size(78, 27);
+            this.btModifier.Size = new System.Drawing.Size(104, 33);
             this.btModifier.TabIndex = 4;
             this.btModifier.Text = "Modifier";
             this.btModifier.UseVisualStyleBackColor = false;
             // 
             // txtDesignation
             // 
-            this.txtDesignation.Location = new System.Drawing.Point(12, 48);
-            this.txtDesignation.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDesignation.Location = new System.Drawing.Point(16, 59);
+            this.txtDesignation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDesignation.MaxLength = 200;
             this.txtDesignation.Name = "txtDesignation";
-            this.txtDesignation.Size = new System.Drawing.Size(73, 20);
+            this.txtDesignation.Size = new System.Drawing.Size(96, 22);
             this.txtDesignation.TabIndex = 1;
             // 
             // lblDesignation
             // 
             this.lblDesignation.AutoSize = true;
-            this.lblDesignation.Location = new System.Drawing.Point(16, 30);
-            this.lblDesignation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDesignation.Location = new System.Drawing.Point(21, 37);
             this.lblDesignation.Name = "lblDesignation";
-            this.lblDesignation.Size = new System.Drawing.Size(69, 13);
+            this.lblDesignation.Size = new System.Drawing.Size(85, 16);
             this.lblDesignation.TabIndex = 0;
             this.lblDesignation.Text = "Désignation :";
             // 
@@ -286,11 +284,11 @@
             this.grpbxLesTypesTriath.Controls.Add(this.btNouveauTypeTriath);
             this.grpbxLesTypesTriath.Controls.Add(this.comboBxLesTypesTriath);
             this.grpbxLesTypesTriath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbxLesTypesTriath.Location = new System.Drawing.Point(11, 11);
-            this.grpbxLesTypesTriath.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbxLesTypesTriath.Location = new System.Drawing.Point(15, 14);
+            this.grpbxLesTypesTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpbxLesTypesTriath.Name = "grpbxLesTypesTriath";
-            this.grpbxLesTypesTriath.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbxLesTypesTriath.Size = new System.Drawing.Size(778, 86);
+            this.grpbxLesTypesTriath.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpbxLesTypesTriath.Size = new System.Drawing.Size(1037, 106);
             this.grpbxLesTypesTriath.TabIndex = 10;
             this.grpbxLesTypesTriath.TabStop = false;
             this.grpbxLesTypesTriath.Text = "Selectionner un type de triathlon dans la liste :";
@@ -298,10 +296,10 @@
             // btNouveauTypeTriath
             // 
             this.btNouveauTypeTriath.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btNouveauTypeTriath.Location = new System.Drawing.Point(458, 25);
-            this.btNouveauTypeTriath.Margin = new System.Windows.Forms.Padding(2);
+            this.btNouveauTypeTriath.Location = new System.Drawing.Point(611, 31);
+            this.btNouveauTypeTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btNouveauTypeTriath.Name = "btNouveauTypeTriath";
-            this.btNouveauTypeTriath.Size = new System.Drawing.Size(141, 32);
+            this.btNouveauTypeTriath.Size = new System.Drawing.Size(188, 39);
             this.btNouveauTypeTriath.TabIndex = 7;
             this.btNouveauTypeTriath.Text = "Nouveau type de triathlon";
             this.btNouveauTypeTriath.UseVisualStyleBackColor = false;
@@ -310,22 +308,23 @@
             // 
             this.comboBxLesTypesTriath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBxLesTypesTriath.FormattingEnabled = true;
-            this.comboBxLesTypesTriath.Location = new System.Drawing.Point(43, 31);
-            this.comboBxLesTypesTriath.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBxLesTypesTriath.Location = new System.Drawing.Point(57, 38);
+            this.comboBxLesTypesTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBxLesTypesTriath.Name = "comboBxLesTypesTriath";
-            this.comboBxLesTypesTriath.Size = new System.Drawing.Size(375, 21);
+            this.comboBxLesTypesTriath.Size = new System.Drawing.Size(499, 24);
             this.comboBxLesTypesTriath.TabIndex = 0;
             // 
             // FrmTypeTriathlon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpbxLesTypesTriathlon);
             this.Controls.Add(this.grpbxDetailTypeTriath);
             this.Controls.Add(this.grpbxLesTypesTriath);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmTypeTriathlon";
-            this.Text = "Gestion des types de tryathlon";
+            this.Text = "Gestion des types de triathlon";
             this.grpbxLesTypesTriathlon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTypeTriath)).EndInit();
             this.grpbxDetailTypeTriath.ResumeLayout(false);

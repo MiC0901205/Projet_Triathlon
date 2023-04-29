@@ -37,7 +37,7 @@ namespace Projet_Triathlon
             {
                 try
                 {
-                    ClassePasserelle.AjouterProduitDop(txtLibelle.Text, float.Parse(txtTauxMax.Text));
+                    ClassePasserelle.AjouterProduitDop(txtLibelle.Text, double.Parse(txtTauxMax.Text));
                     this.Close();
                 }
                 catch (Exception ex)

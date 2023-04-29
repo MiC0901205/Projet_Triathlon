@@ -66,7 +66,7 @@ namespace Projet_Triathlon
                 {
                     int codeDop = (int)readerLesProduitsDop[0];
                     string libelle = readerLesProduitsDop[1].ToString();
-                    float tauxMax = (float)readerLesProduitsDop[2];
+                    double tauxMax = (double)readerLesProduitsDop[2];
 
                     lesProduitsDop.Add(new ProdDopant(codeDop, libelle, tauxMax));
                 }
@@ -135,9 +135,9 @@ namespace Projet_Triathlon
                     int numTriath = (int)readerLesInscriptions[0];
                     int numDossard = (int)readerLesInscriptions[1];
                     DateTime dateI = (DateTime)readerLesInscriptions[2];
-                    float tempsNat = (float)readerLesInscriptions[3];
-                    float tempsCou = (float)readerLesInscriptions[4];
-                    float tempsCycl = (float)readerLesInscriptions[5];
+                    double tempsNat = (double)readerLesInscriptions[3];
+                    double tempsCou = (double)readerLesInscriptions[4];
+                    double tempsCycl = (double)readerLesInscriptions[5];
                     int numLicence = (int)readerLesInscriptions[6];
 
                     lesInscriptions.Add(new Inscription(numTriath, numDossard, numLicence, dateI, tempsNat, tempsCou, tempsCycl));
@@ -205,7 +205,7 @@ namespace Projet_Triathlon
                     int codeDop = (int)readerLesControles[0];
                     int numTriath = (int)readerLesControles[1];
                     int numDoss = (int)readerLesControles[2];
-                    float mesureE = (float)readerLesControles[3];
+                    double mesureE = (double)readerLesControles[3];
 
                     lesControles.Add(new Controler(codeDop, numTriath, numDoss, mesureE));
                 }
@@ -242,10 +242,10 @@ namespace Projet_Triathlon
                     int numDossard = (int)readerLesTriathletes[1];
                     string nom = readerLesTriathletes[2].ToString();
                     string prenom = readerLesTriathletes[3].ToString();
-                    float tempsCourse = (float)readerLesTriathletes[4];
-                    float tempsCyclisme = (float)readerLesTriathletes[5];
-                    float tempsNatation = (float)readerLesTriathletes[6];
-                    float tempsTotal = (float)readerLesTriathletes[7];
+                    double tempsCourse = (double)readerLesTriathletes[4];
+                    double tempsCyclisme = (double)readerLesTriathletes[5];
+                    double tempsNatation = (double)readerLesTriathletes[6];
+                    double tempsTotal = (double)readerLesTriathletes[7];
 
                     lesTriathletes.Add(new Triathlete(numLicence, numDossard, nom, prenom, tempsCourse, tempsCyclisme, tempsNatation, tempsTotal));
                 }
@@ -302,7 +302,7 @@ namespace Projet_Triathlon
         /// </summary>
         /// <param name="libelle">libelle du nouveau produit dopant</param>
         /// <param name="tauxMax">taux max du nouveau produit dopant</param>
-        public static void AjouterProduitDop(string libelle, float tauxMax)
+        public static void AjouterProduitDop(string libelle, double tauxMax)
         {
             SqlCommand reqAjouterProduitDop = new SqlCommand("INSERT INTO ProdDopant (libelle, tauxMax) VALUES (@libelle, @tauxMax);", connexionBaseTriathlon);
 
@@ -473,7 +473,7 @@ namespace Projet_Triathlon
         /// <param name="codeDop">code du produit dopant à modifier</param>
         /// <param name="libelle">nouveau libelle du produit dopant</param>
         /// <param name="tauxMax">nouveau taux max du produit dopant</param>
-        public static void ModifierProduitsDop(int codeDop, string libelle, float tauxMax)
+        public static void ModifierProduitsDop(int codeDop, string libelle, double tauxMax)
         {
             SqlCommand reqModifierProduitsDop = new SqlCommand("UPDATE ProdDopant Set libelle = @libelle, tauxMax = @tauxMax WHERE codeDop = @code;", connexionBaseTriathlon);
 
@@ -589,7 +589,7 @@ namespace Projet_Triathlon
         /// <param name="tempsNatation">nouveau temps natation du triathlete inscrit</param>
         /// <param name="tempsCourse">nouveau temps course du triathlete inscrit</param>
         /// <param name="tempsCyclisme">nouveau temps cyclisme du triathlete inscrit</param>
-        public static void ModifierTemps(int numTriath, int numDossard, float tempsNatation, float tempsCourse, float tempsCyclisme)
+        public static void ModifierTemps(int numTriath, int numDossard, double tempsNatation, double tempsCourse, double tempsCyclisme)
         {
             SqlCommand reqModifierTemps = new SqlCommand("UPDATE Inscription Set tempsNatation = @tN, tempsCourse = @tCo, tempsCyclisme = @tCy WHERE numTriath = @numT and numDossard = @numD;", connexionBaseTriathlon);
 
@@ -616,7 +616,7 @@ namespace Projet_Triathlon
         /// <param name="numTriath">num du triathlon du controle à modifier</param>
         /// <param name="numDossard">num du dossard du controle à modifier</param>
         /// <param name="mesureEtablie">nouvelle mesure etablie du controle</param>
-        public static void ModifierControle(int codeDop, int numTriath, int numDossard, float mesureEtablie)
+        public static void ModifierControle(int codeDop, int numTriath, int numDossard, double mesureEtablie)
         {
             SqlCommand reqModifierControle = new SqlCommand("UPDATE Controler Set mesureEtablie = @mesureE WHERE numTriath = @numT and numDossard = @numD and codeDop = @codeD;", connexionBaseTriathlon);
 

@@ -24,10 +24,10 @@ namespace Projet_Triathlon
                 //On charge la comboBox avec tous les produits de la base de données au chargement du formulaire
                 comboBxLesProdsDop.DataSource = ClassePasserelle.GetLesProduitsDop();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Erreur au chargement des données", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //this.Close();
             }
         }
 
@@ -72,7 +72,7 @@ namespace Projet_Triathlon
             {
                 MessageBox.Show("Vous devez remplir TOUS les champs !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (float.Parse(txtTauxMax.Text) < 0)
+            else if (double.Parse(txtTauxMax.Text) < 0)
             {
                 MessageBox.Show("Le nouveau taux max du produit ne peut pas être inférieur à 0.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -84,7 +84,7 @@ namespace Projet_Triathlon
                     try
                     {
                         //L'utilisateur confirme la modification des valeurs
-                        ClassePasserelle.ModifierProduitsDop(produitSelectionne.CodDop, txtLibelle.Text, float.Parse(txtTauxMax.Text));
+                        ClassePasserelle.ModifierProduitsDop(produitSelectionne.CodDop, txtLibelle.Text, double.Parse(txtTauxMax.Text));
 
                         #region 3.2.2. Compléter les commentaires
                         //On actualise la comboBox

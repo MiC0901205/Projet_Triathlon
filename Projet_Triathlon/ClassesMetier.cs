@@ -11,7 +11,7 @@ namespace Projet_Triathlon
         public int NumLicence, NumDossard, Cp;
         public string Nom, Prenom, Adresse, Ville;
         public DateTime DateNaissance;
-        public float TempsNatation, TempsCourse, TempsCyclisme, TempsTotal;
+        public double TempsNatation, TempsCourse, TempsCyclisme, TempsTotal;
 
         public Triathlete(int unNumLicence, int unCp, string unNom, string unPrenom, string uneAdresse, string uneVille, DateTime uneDateNaissance) 
         { 
@@ -24,7 +24,7 @@ namespace Projet_Triathlon
             this.DateNaissance = uneDateNaissance;
         }
 
-        public Triathlete(int unNumLicence, int unNumDossard, string unNom, string unPrenom, float unTempsCourse, float unTempsCyclisme, float unTempsNatation, float unTempsTotal)
+        public Triathlete(int unNumLicence, int unNumDossard, string unNom, string unPrenom, double unTempsCourse, double unTempsCyclisme, double unTempsNatation, double unTempsTotal)
         {
             this.NumLicence = unNumLicence;
             this.NumDossard = unNumDossard;
@@ -67,9 +67,9 @@ namespace Projet_Triathlon
     {
         public int NumTriath, NumDossard, NumLicence;
         public DateTime DateInscription;
-        public float TempsNatation, TempsCourse, TempsCyclisme;
+        public double TempsNatation, TempsCourse, TempsCyclisme;
 
-        public Inscription(int unNumTriath, int unNumDossard, int unNumLicence, DateTime uneDateInscription, float unTempsNatation, float unTempsCourse, float unTempsCyclisme)
+        public Inscription(int unNumTriath, int unNumDossard, int unNumLicence, DateTime uneDateInscription, double unTempsNatation, double unTempsCourse, double unTempsCyclisme)
         {
             this.NumTriath = unNumTriath;
             this.NumDossard = unNumDossard;
@@ -89,9 +89,9 @@ namespace Projet_Triathlon
     public class Controler
     {
         public int NumTriath, NumDossard, CodeDop;
-        public float MesureEtablie;
+        public double MesureEtablie;
 
-        public Controler(int unNumTriath, int unNumDossard, int unCodeDop, float uneMesureEtablie)
+        public Controler(int unNumTriath, int unNumDossard, int unCodeDop, double uneMesureEtablie)
         {
             this.NumTriath = unNumTriath;
             this.NumDossard = unNumDossard;
@@ -109,9 +109,9 @@ namespace Projet_Triathlon
     {
         public int CodDop;
         public string Libelle;
-        public float TauxMax;
+        public double TauxMax;
 
-        public ProdDopant(int unCodeDop,string unLibelle, float unTauxMax)
+        public ProdDopant(int unCodeDop,string unLibelle, double unTauxMax)
         {
             this.CodDop = unCodeDop;
             this.Libelle = unLibelle;
