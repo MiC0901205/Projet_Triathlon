@@ -50,20 +50,18 @@
             this.btModifier = new System.Windows.Forms.Button();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblLibelle = new System.Windows.Forms.Label();
-            this.grpbxLesTriathletes = new System.Windows.Forms.GroupBox();
             this.btNouveauTriathlete = new System.Windows.Forms.Button();
-            this.comboBxLesTriathletes = new System.Windows.Forms.ComboBox();
             this.grpbxTriathletes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTriathlete)).BeginInit();
             this.grpbxDetailTriathlete.SuspendLayout();
-            this.grpbxLesTriathletes.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpbxTriathletes
             // 
+            this.grpbxTriathletes.Controls.Add(this.btNouveauTriathlete);
             this.grpbxTriathletes.Controls.Add(this.btSupprimer);
             this.grpbxTriathletes.Controls.Add(this.gridTriathlete);
-            this.grpbxTriathletes.Location = new System.Drawing.Point(242, 110);
+            this.grpbxTriathletes.Location = new System.Drawing.Point(242, 56);
             this.grpbxTriathletes.Margin = new System.Windows.Forms.Padding(2);
             this.grpbxTriathletes.Name = "grpbxTriathletes";
             this.grpbxTriathletes.Padding = new System.Windows.Forms.Padding(2);
@@ -76,10 +74,10 @@
             // 
             this.btSupprimer.BackColor = System.Drawing.Color.OrangeRed;
             this.btSupprimer.Enabled = false;
-            this.btSupprimer.Location = new System.Drawing.Point(227, 272);
+            this.btSupprimer.Location = new System.Drawing.Point(160, 277);
             this.btSupprimer.Margin = new System.Windows.Forms.Padding(2);
             this.btSupprimer.Name = "btSupprimer";
-            this.btSupprimer.Size = new System.Drawing.Size(129, 43);
+            this.btSupprimer.Size = new System.Drawing.Size(129, 32);
             this.btSupprimer.TabIndex = 6;
             this.btSupprimer.Text = "Supprimer triathlète";
             this.btSupprimer.UseVisualStyleBackColor = false;
@@ -174,7 +172,7 @@
             this.grpbxDetailTriathlete.Controls.Add(this.btModifier);
             this.grpbxDetailTriathlete.Controls.Add(this.txtNom);
             this.grpbxDetailTriathlete.Controls.Add(this.lblLibelle);
-            this.grpbxDetailTriathlete.Location = new System.Drawing.Point(11, 110);
+            this.grpbxDetailTriathlete.Location = new System.Drawing.Point(11, 56);
             this.grpbxDetailTriathlete.Margin = new System.Windows.Forms.Padding(2);
             this.grpbxDetailTriathlete.Name = "grpbxDetailTriathlete";
             this.grpbxDetailTriathlete.Padding = new System.Windows.Forms.Padding(2);
@@ -290,40 +288,16 @@
             this.lblLibelle.TabIndex = 0;
             this.lblLibelle.Text = "Nom :";
             // 
-            // grpbxLesTriathletes
-            // 
-            this.grpbxLesTriathletes.Controls.Add(this.btNouveauTriathlete);
-            this.grpbxLesTriathletes.Controls.Add(this.comboBxLesTriathletes);
-            this.grpbxLesTriathletes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbxLesTriathletes.Location = new System.Drawing.Point(11, 11);
-            this.grpbxLesTriathletes.Margin = new System.Windows.Forms.Padding(2);
-            this.grpbxLesTriathletes.Name = "grpbxLesTriathletes";
-            this.grpbxLesTriathletes.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbxLesTriathletes.Size = new System.Drawing.Size(778, 86);
-            this.grpbxLesTriathletes.TabIndex = 10;
-            this.grpbxLesTriathletes.TabStop = false;
-            this.grpbxLesTriathletes.Text = "Selectionner un triathlète dans la liste :";
-            // 
             // btNouveauTriathlete
             // 
             this.btNouveauTriathlete.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btNouveauTriathlete.Location = new System.Drawing.Point(458, 25);
+            this.btNouveauTriathlete.Location = new System.Drawing.Point(304, 277);
             this.btNouveauTriathlete.Margin = new System.Windows.Forms.Padding(2);
             this.btNouveauTriathlete.Name = "btNouveauTriathlete";
             this.btNouveauTriathlete.Size = new System.Drawing.Size(129, 32);
             this.btNouveauTriathlete.TabIndex = 7;
             this.btNouveauTriathlete.Text = "Nouveau triathlète";
             this.btNouveauTriathlete.UseVisualStyleBackColor = false;
-            // 
-            // comboBxLesTriathletes
-            // 
-            this.comboBxLesTriathletes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBxLesTriathletes.FormattingEnabled = true;
-            this.comboBxLesTriathletes.Location = new System.Drawing.Point(43, 31);
-            this.comboBxLesTriathletes.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBxLesTriathletes.Name = "comboBxLesTriathletes";
-            this.comboBxLesTriathletes.Size = new System.Drawing.Size(375, 21);
-            this.comboBxLesTriathletes.TabIndex = 0;
             // 
             // FrmTriathlete
             // 
@@ -332,14 +306,12 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grpbxTriathletes);
             this.Controls.Add(this.grpbxDetailTriathlete);
-            this.Controls.Add(this.grpbxLesTriathletes);
             this.Name = "FrmTriathlete";
             this.Text = "Gestion des triathlètes";
             this.grpbxTriathletes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTriathlete)).EndInit();
             this.grpbxDetailTriathlete.ResumeLayout(false);
             this.grpbxDetailTriathlete.PerformLayout();
-            this.grpbxLesTriathletes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -353,9 +325,6 @@
         private System.Windows.Forms.Button btModifier;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.Label lblLibelle;
-        private System.Windows.Forms.GroupBox grpbxLesTriathletes;
-        private System.Windows.Forms.Button btNouveauTriathlete;
-        private System.Windows.Forms.ComboBox comboBxLesTriathletes;
         private System.Windows.Forms.TextBox txtAdresse;
         private System.Windows.Forms.Label lblAdresse;
         private System.Windows.Forms.TextBox txtVille;
@@ -371,6 +340,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateNaissance;
+        private System.Windows.Forms.Button btNouveauTriathlete;
     }
 }
 

@@ -40,9 +40,13 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpbxTemps = new System.Windows.Forms.GroupBox();
+            this.btSupprime = new System.Windows.Forms.Button();
+            this.btModifier = new System.Windows.Forms.Button();
             this.grpbxLesTriathlonsCla.SuspendLayout();
             this.grpbxLeClassement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridClassement)).BeginInit();
+            this.grpbxTemps.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpbxLesTriathlonsCla
@@ -75,7 +79,7 @@
             this.grpbxLeClassement.Margin = new System.Windows.Forms.Padding(2);
             this.grpbxLeClassement.Name = "grpbxLeClassement";
             this.grpbxLeClassement.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbxLeClassement.Size = new System.Drawing.Size(778, 329);
+            this.grpbxLeClassement.Size = new System.Drawing.Size(571, 329);
             this.grpbxLeClassement.TabIndex = 10;
             this.grpbxLeClassement.TabStop = false;
             this.grpbxLeClassement.Text = "Le classement";
@@ -103,7 +107,7 @@
             this.gridClassement.RowHeadersWidth = 51;
             this.gridClassement.RowTemplate.Height = 28;
             this.gridClassement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridClassement.Size = new System.Drawing.Size(768, 306);
+            this.gridClassement.Size = new System.Drawing.Size(548, 306);
             this.gridClassement.TabIndex = 0;
             // 
             // colNumCli
@@ -165,11 +169,49 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 88;
             // 
+            // grpbxTemps
+            // 
+            this.grpbxTemps.Controls.Add(this.btSupprime);
+            this.grpbxTemps.Controls.Add(this.btModifier);
+            this.grpbxTemps.Location = new System.Drawing.Point(586, 101);
+            this.grpbxTemps.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbxTemps.Name = "grpbxTemps";
+            this.grpbxTemps.Padding = new System.Windows.Forms.Padding(2);
+            this.grpbxTemps.Size = new System.Drawing.Size(203, 329);
+            this.grpbxTemps.TabIndex = 12;
+            this.grpbxTemps.TabStop = false;
+            this.grpbxTemps.Text = "Temps";
+            // 
+            // btSupprime
+            // 
+            this.btSupprime.BackColor = System.Drawing.Color.OrangeRed;
+            this.btSupprime.Enabled = false;
+            this.btSupprime.Location = new System.Drawing.Point(18, 201);
+            this.btSupprime.Margin = new System.Windows.Forms.Padding(2);
+            this.btSupprime.Name = "btSupprime";
+            this.btSupprime.Size = new System.Drawing.Size(85, 27);
+            this.btSupprime.TabIndex = 7;
+            this.btSupprime.Text = "Supprimer";
+            this.btSupprime.UseVisualStyleBackColor = false;
+            // 
+            // btModifier
+            // 
+            this.btModifier.BackColor = System.Drawing.Color.Silver;
+            this.btModifier.Enabled = false;
+            this.btModifier.Location = new System.Drawing.Point(121, 201);
+            this.btModifier.Margin = new System.Windows.Forms.Padding(2);
+            this.btModifier.Name = "btModifier";
+            this.btModifier.Size = new System.Drawing.Size(78, 27);
+            this.btModifier.TabIndex = 4;
+            this.btModifier.Text = "Enregistrer";
+            this.btModifier.UseVisualStyleBackColor = false;
+            // 
             // FrmClassement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.grpbxTemps);
             this.Controls.Add(this.grpbxLeClassement);
             this.Controls.Add(this.grpbxLesTriathlonsCla);
             this.Name = "FrmClassement";
@@ -177,6 +219,7 @@
             this.grpbxLesTriathlonsCla.ResumeLayout(false);
             this.grpbxLeClassement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridClassement)).EndInit();
+            this.grpbxTemps.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -195,5 +238,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.GroupBox grpbxTemps;
+        private System.Windows.Forms.Button btModifier;
+        private System.Windows.Forms.Button btSupprime;
     }
 }

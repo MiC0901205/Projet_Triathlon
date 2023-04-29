@@ -147,5 +147,6 @@ namespace Projet_Triathlon
             comboBxLesProdsDop.DataSource = ClassePasserelle.GetLesProduitsDop(); // On charge la comboBox avec tous les produits de la base de données dès l'appui du boutton nouveau produit
             comboBxLesProdsDop.SelectedIndex = comboBxLesProdsDop.Items.Count - 1; // Sélectionne un index dans la combobox
         }
+
     }
 }

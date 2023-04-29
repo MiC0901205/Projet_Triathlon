@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpbxTriathlons = new System.Windows.Forms.GroupBox();
-            this.btSupprimer = new System.Windows.Forms.Button();
-            this.gridTriathlons = new System.Windows.Forms.DataGridView();
+            this.grpbxInscriptions = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btSupprimerInscription = new System.Windows.Forms.Button();
+            this.gridInscriptions = new System.Windows.Forms.DataGridView();
             this.colNumCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrenomCLi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVilleCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbxDetailTriathlon = new System.Windows.Forms.GroupBox();
+            this.btSupprimerTriathlon = new System.Windows.Forms.Button();
             this.comboBxLesTypesTriath = new System.Windows.Forms.ComboBox();
             this.lblTypeTriathlon = new System.Windows.Forms.Label();
             this.dateTimeCompet = new System.Windows.Forms.DateTimePicker();
@@ -49,59 +51,71 @@
             this.grpbxLesTriathlons = new System.Windows.Forms.GroupBox();
             this.btNouveauTriathlon = new System.Windows.Forms.Button();
             this.comboBxLesTriathlons = new System.Windows.Forms.ComboBox();
-            this.grpbxTriathlons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTriathlons)).BeginInit();
+            this.grpbxInscriptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridInscriptions)).BeginInit();
             this.grpbxDetailTriathlon.SuspendLayout();
             this.grpbxLesTriathlons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grpbxTriathlons
+            // grpbxInscriptions
             // 
-            this.grpbxTriathlons.Controls.Add(this.btSupprimer);
-            this.grpbxTriathlons.Controls.Add(this.gridTriathlons);
-            this.grpbxTriathlons.Location = new System.Drawing.Point(269, 100);
-            this.grpbxTriathlons.Margin = new System.Windows.Forms.Padding(2);
-            this.grpbxTriathlons.Name = "grpbxTriathlons";
-            this.grpbxTriathlons.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbxTriathlons.Size = new System.Drawing.Size(520, 339);
-            this.grpbxTriathlons.TabIndex = 17;
-            this.grpbxTriathlons.TabStop = false;
-            this.grpbxTriathlons.Text = "Les triathlons";
+            this.grpbxInscriptions.Controls.Add(this.button1);
+            this.grpbxInscriptions.Controls.Add(this.btSupprimerInscription);
+            this.grpbxInscriptions.Controls.Add(this.gridInscriptions);
+            this.grpbxInscriptions.Location = new System.Drawing.Point(269, 100);
+            this.grpbxInscriptions.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbxInscriptions.Name = "grpbxInscriptions";
+            this.grpbxInscriptions.Padding = new System.Windows.Forms.Padding(2);
+            this.grpbxInscriptions.Size = new System.Drawing.Size(520, 339);
+            this.grpbxInscriptions.TabIndex = 17;
+            this.grpbxInscriptions.TabStop = false;
+            this.grpbxInscriptions.Text = "Les inscriptions";
             // 
-            // btSupprimer
+            // button1
             // 
-            this.btSupprimer.BackColor = System.Drawing.Color.OrangeRed;
-            this.btSupprimer.Enabled = false;
-            this.btSupprimer.Location = new System.Drawing.Point(224, 280);
-            this.btSupprimer.Margin = new System.Windows.Forms.Padding(2);
-            this.btSupprimer.Name = "btSupprimer";
-            this.btSupprimer.Size = new System.Drawing.Size(141, 37);
-            this.btSupprimer.TabIndex = 6;
-            this.btSupprimer.Text = "Supprimer triathlon";
-            this.btSupprimer.UseVisualStyleBackColor = false;
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(166, 280);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 37);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Ajouter";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // gridTriathlons
+            // btSupprimerInscription
             // 
-            this.gridTriathlons.AllowUserToAddRows = false;
-            this.gridTriathlons.AllowUserToDeleteRows = false;
-            this.gridTriathlons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gridTriathlons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridTriathlons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btSupprimerInscription.BackColor = System.Drawing.Color.OrangeRed;
+            this.btSupprimerInscription.Enabled = false;
+            this.btSupprimerInscription.Location = new System.Drawing.Point(298, 280);
+            this.btSupprimerInscription.Margin = new System.Windows.Forms.Padding(2);
+            this.btSupprimerInscription.Name = "btSupprimerInscription";
+            this.btSupprimerInscription.Size = new System.Drawing.Size(105, 37);
+            this.btSupprimerInscription.TabIndex = 6;
+            this.btSupprimerInscription.Text = "Supprimer";
+            this.btSupprimerInscription.UseVisualStyleBackColor = false;
+            // 
+            // gridInscriptions
+            // 
+            this.gridInscriptions.AllowUserToAddRows = false;
+            this.gridInscriptions.AllowUserToDeleteRows = false;
+            this.gridInscriptions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridInscriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridInscriptions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNumCli,
             this.colNomCli,
             this.colPrenomCLi,
             this.colVilleCli,
             this.Column1});
-            this.gridTriathlons.Location = new System.Drawing.Point(10, 19);
-            this.gridTriathlons.Margin = new System.Windows.Forms.Padding(2);
-            this.gridTriathlons.MultiSelect = false;
-            this.gridTriathlons.Name = "gridTriathlons";
-            this.gridTriathlons.ReadOnly = true;
-            this.gridTriathlons.RowHeadersWidth = 51;
-            this.gridTriathlons.RowTemplate.Height = 28;
-            this.gridTriathlons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTriathlons.Size = new System.Drawing.Size(510, 244);
-            this.gridTriathlons.TabIndex = 0;
+            this.gridInscriptions.Location = new System.Drawing.Point(10, 19);
+            this.gridInscriptions.Margin = new System.Windows.Forms.Padding(2);
+            this.gridInscriptions.MultiSelect = false;
+            this.gridInscriptions.Name = "gridInscriptions";
+            this.gridInscriptions.ReadOnly = true;
+            this.gridInscriptions.RowHeadersWidth = 51;
+            this.gridInscriptions.RowTemplate.Height = 28;
+            this.gridInscriptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridInscriptions.Size = new System.Drawing.Size(510, 244);
+            this.gridInscriptions.TabIndex = 0;
             // 
             // colNumCli
             // 
@@ -144,6 +158,7 @@
             // 
             // grpbxDetailTriathlon
             // 
+            this.grpbxDetailTriathlon.Controls.Add(this.btSupprimerTriathlon);
             this.grpbxDetailTriathlon.Controls.Add(this.comboBxLesTypesTriath);
             this.grpbxDetailTriathlon.Controls.Add(this.lblTypeTriathlon);
             this.grpbxDetailTriathlon.Controls.Add(this.dateTimeCompet);
@@ -161,6 +176,18 @@
             this.grpbxDetailTriathlon.TabIndex = 16;
             this.grpbxDetailTriathlon.TabStop = false;
             this.grpbxDetailTriathlon.Text = "Détail du triathlon";
+            // 
+            // btSupprimerTriathlon
+            // 
+            this.btSupprimerTriathlon.BackColor = System.Drawing.Color.OrangeRed;
+            this.btSupprimerTriathlon.Enabled = false;
+            this.btSupprimerTriathlon.Location = new System.Drawing.Point(112, 293);
+            this.btSupprimerTriathlon.Margin = new System.Windows.Forms.Padding(2);
+            this.btSupprimerTriathlon.Name = "btSupprimerTriathlon";
+            this.btSupprimerTriathlon.Size = new System.Drawing.Size(84, 27);
+            this.btSupprimerTriathlon.TabIndex = 11;
+            this.btSupprimerTriathlon.Text = "Supprimer";
+            this.btSupprimerTriathlon.UseVisualStyleBackColor = false;
             // 
             // comboBxLesTypesTriath
             // 
@@ -222,7 +249,7 @@
             // 
             this.btModifier.BackColor = System.Drawing.Color.Silver;
             this.btModifier.Enabled = false;
-            this.btModifier.Location = new System.Drawing.Point(89, 293);
+            this.btModifier.Location = new System.Drawing.Point(19, 293);
             this.btModifier.Margin = new System.Windows.Forms.Padding(2);
             this.btModifier.Name = "btModifier";
             this.btModifier.Size = new System.Drawing.Size(78, 27);
@@ -266,10 +293,10 @@
             // btNouveauTriathlon
             // 
             this.btNouveauTriathlon.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btNouveauTriathlon.Location = new System.Drawing.Point(458, 19);
+            this.btNouveauTriathlon.Location = new System.Drawing.Point(458, 23);
             this.btNouveauTriathlon.Margin = new System.Windows.Forms.Padding(2);
             this.btNouveauTriathlon.Name = "btNouveauTriathlon";
-            this.btNouveauTriathlon.Size = new System.Drawing.Size(129, 42);
+            this.btNouveauTriathlon.Size = new System.Drawing.Size(129, 33);
             this.btNouveauTriathlon.TabIndex = 7;
             this.btNouveauTriathlon.Text = "Nouveau triathlon";
             this.btNouveauTriathlon.UseVisualStyleBackColor = false;
@@ -289,13 +316,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.grpbxTriathlons);
+            this.Controls.Add(this.grpbxInscriptions);
             this.Controls.Add(this.grpbxDetailTriathlon);
             this.Controls.Add(this.grpbxLesTriathlons);
             this.Name = "FrmTriathlon";
             this.Text = "Gestion des triathlons";
-            this.grpbxTriathlons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridTriathlons)).EndInit();
+            this.grpbxInscriptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridInscriptions)).EndInit();
             this.grpbxDetailTriathlon.ResumeLayout(false);
             this.grpbxDetailTriathlon.PerformLayout();
             this.grpbxLesTriathlons.ResumeLayout(false);
@@ -305,9 +332,9 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpbxTriathlons;
-        private System.Windows.Forms.Button btSupprimer;
-        private System.Windows.Forms.DataGridView gridTriathlons;
+        private System.Windows.Forms.GroupBox grpbxInscriptions;
+        private System.Windows.Forms.Button btSupprimerInscription;
+        private System.Windows.Forms.DataGridView gridInscriptions;
         private System.Windows.Forms.GroupBox grpbxDetailTriathlon;
         private System.Windows.Forms.Button btModifier;
         private System.Windows.Forms.TextBox txtNom;
@@ -326,5 +353,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrenomCLi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVilleCli;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button btSupprimerTriathlon;
+        private System.Windows.Forms.Button button1;
     }
 }
