@@ -8,10 +8,18 @@ namespace Projet_Triathlon
 {
     public class Triathlete
     {
-        public int NumLicence, NumDossard, Cp;
-        public string Nom, Prenom, Adresse, Ville;
-        public DateTime DateNaissance;
-        public double TempsNatation, TempsCourse, TempsCyclisme, TempsTotal;
+        private int cp;
+        private string ville;
+        private DateTime dateNaissance;
+        private double tempsTotal;
+        private int numLicence;
+        private int numDossard;
+        private string nom;
+        private string prenom;
+        private string adresse;
+        private double tempsNatation;
+        private double tempsCourse;
+        private double tempsCyclisme;
 
         public Triathlete(int unNumLicence, int unCp, string unNom, string unPrenom, string uneAdresse, string uneVille, DateTime uneDateNaissance) 
         { 
@@ -36,6 +44,19 @@ namespace Projet_Triathlon
             this.TempsTotal = unTempsTotal;
         }
 
+        public int NumLicence { get => numLicence; set => numLicence = value; }
+        public int NumDossard { get => numDossard; set => numDossard = value; }
+        public int Cp { get => cp; set => cp = value; }
+        public string Nom { get => nom; set => nom = value; }
+        public string Prenom { get => prenom; set => prenom = value; }
+        public string Adresse { get => adresse; set => adresse = value; }
+        public string Ville { get => ville; set => ville = value; }
+        public DateTime DateNaissance { get => dateNaissance; set => dateNaissance = value; }
+        public double TempsNatation { get => tempsNatation; set => tempsNatation = value; }
+        public double TempsCourse { get => tempsCourse; set => tempsCourse = value; }
+        public double TempsCyclisme { get => tempsCyclisme; set => tempsCyclisme = value; }
+        public double TempsTotal { get => tempsTotal; set => tempsTotal = value; }
+
         public override string ToString()
         {
             return "[" + this.NumLicence + "] " + this.Nom + " " + this.Prenom;
@@ -44,9 +65,11 @@ namespace Projet_Triathlon
 
     public class Triathlon
     {
-        public int NumTriath, CodeTypeT;
-        public string Nom, Lieu;
-        public DateTime DateCompet;
+        private int codeTypeT;
+        private string lieu;
+        private DateTime dateCompet;
+        private int numTriath;
+        private string nom;
 
         public Triathlon(int unNumTriath, string unNom, string unLieu, DateTime uneDateCompet, int unCodeTypeT)
         {
@@ -57,6 +80,12 @@ namespace Projet_Triathlon
             this.CodeTypeT = unCodeTypeT;
         }
 
+        public int NumTriath { get => numTriath; set => numTriath = value; }
+        public int CodeTypeT { get => codeTypeT; set => codeTypeT = value; }
+        public string Nom { get => nom; set => nom = value; }
+        public string Lieu { get => lieu; set => lieu = value; }
+        public DateTime DateCompet { get => dateCompet; set => dateCompet = value; }
+
         public override string ToString()
         {
             return this.NumTriath + ". " + this.Nom;
@@ -65,9 +94,13 @@ namespace Projet_Triathlon
 
     public class Inscription
     {
-        public int NumTriath, NumDossard, NumLicence;
-        public DateTime DateInscription;
-        public double TempsNatation, TempsCourse, TempsCyclisme;
+        private int numLicence;
+        private DateTime dateInscription;
+        private double tempsCyclisme;
+        private int numTriath;
+        private int numDossard;
+        private double tempsNatation;
+        private double tempsCourse;
 
         public Inscription(int unNumTriath, int unNumDossard, int unNumLicence, DateTime uneDateInscription, double unTempsNatation, double unTempsCourse, double unTempsCyclisme)
         {
@@ -80,6 +113,14 @@ namespace Projet_Triathlon
             this.TempsCyclisme = unTempsCyclisme;
         }
 
+        public int NumTriath { get => numTriath; set => numTriath = value; }
+        public int NumDossard { get => numDossard; set => numDossard = value; }
+        public int NumLicence { get => numLicence; set => numLicence = value; }
+        public DateTime DateInscription { get => dateInscription; set => dateInscription = value; }
+        public double TempsNatation { get => tempsNatation; set => tempsNatation = value; }
+        public double TempsCourse { get => tempsCourse; set => tempsCourse = value; }
+        public double TempsCyclisme { get => tempsCyclisme; set => tempsCyclisme = value; }
+
         public override string ToString()
         {
             return this.NumTriath + "." + this.NumDossard;
@@ -88,8 +129,10 @@ namespace Projet_Triathlon
 
     public class Controler
     {
-        public int NumTriath, NumDossard, CodeDop;
-        public double MesureEtablie;
+        private int codeDop;
+        private double mesureEtablie;
+        private int numTriath;
+        private int numDossard;
 
         public Controler(int unNumTriath, int unNumDossard, int unCodeDop, double uneMesureEtablie)
         {
@@ -99,6 +142,11 @@ namespace Projet_Triathlon
             this.MesureEtablie = uneMesureEtablie;
         }
 
+        public int NumTriath { get => numTriath; set => numTriath = value; }
+        public int NumDossard { get => numDossard; set => numDossard = value; }
+        public int CodeDop { get => codeDop; set => codeDop = value; }
+        public double MesureEtablie { get => mesureEtablie; set => mesureEtablie = value; }
+
         public override string ToString()
         {
             return "[" + this.NumTriath + "." + this.NumDossard + "] " + this.CodeDop;
@@ -107,9 +155,13 @@ namespace Projet_Triathlon
 
     public class ProdDopant
     {
-        public int CodDop;
-        public string Libelle;
-        public double TauxMax;
+        private int codDop;
+        private string libelle;
+        private double tauxMax;
+
+        public int CodDop { get => codDop; set => codDop = value; }
+        public string Libelle { get => libelle; set => libelle = value; }
+        public double TauxMax { get => tauxMax; set => tauxMax = value; }
 
         public ProdDopant(int unCodeDop,string unLibelle, double unTauxMax)
         {
@@ -126,8 +178,12 @@ namespace Projet_Triathlon
 
     public class TypeTriathlon
     {
-        public int CodeTypeT, DistanceCyclisme, DistanceNatation, DistanceCourse;
-        public string Designation, Nom;
+        private int distanceCourse;
+        private string nom;
+        private int codeTypeT;
+        private int distanceCyclisme;
+        private int distanceNatation;
+        private string designation;
 
         public TypeTriathlon(int unCodeTypeT, string uneDesignation, string unNom, int uneDistanceCyclisme, int uneDistanceNatation, int uneDistanceCourse)
         {
@@ -138,6 +194,13 @@ namespace Projet_Triathlon
             this.DistanceNatation = uneDistanceNatation;
             this.DistanceCourse = uneDistanceCourse;
         }
+
+        public int CodeTypeT { get => codeTypeT; set => codeTypeT = value; }
+        public int DistanceCyclisme { get => distanceCyclisme; set => distanceCyclisme = value; }
+        public int DistanceNatation { get => distanceNatation; set => distanceNatation = value; }
+        public int DistanceCourse { get => distanceCourse; set => distanceCourse = value; }
+        public string Designation { get => designation; set => designation = value; }
+        public string Nom { get => nom; set => nom = value; }
 
         public override string ToString()
         {

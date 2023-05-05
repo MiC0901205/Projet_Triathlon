@@ -458,14 +458,18 @@ namespace Projet_Triathlon
             }
         }
 
+
+        /// A FAIRE
         /// <summary>
         /// 
         /// </summary>
         /// <param name=""></param>
         public static void AjouterTemps()
         {
-           
+
         }
+
+
 
         /// <summary>
         /// Modifie dans la base de données le produit dopant correspondant à l'identifiant avec les valeurs passées en paramètre
@@ -634,6 +638,9 @@ namespace Projet_Triathlon
                 connexionBaseTriathlon.Close();
             }
         }
+
+
+
 
         /// <summary>
         /// Supprime dans la base de données le produit dopant avec le code passé en paramètre ainsi que ses controles

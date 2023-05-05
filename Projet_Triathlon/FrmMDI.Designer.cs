@@ -38,12 +38,12 @@
             this.ajoutTriathletesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gérerTriathletesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTriathlon = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajoutTriathonsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajoutTriathlonsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gérerTriathlonsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classementMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemQUITTER = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuItemProdDopant
@@ -58,14 +58,14 @@
             // ajoutProdMenuItem
             // 
             this.ajoutProdMenuItem.Name = "ajoutProdMenuItem";
-            this.ajoutProdMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ajoutProdMenuItem.Size = new System.Drawing.Size(160, 26);
             this.ajoutProdMenuItem.Text = "Nouveau...";
             this.ajoutProdMenuItem.Click += new System.EventHandler(this.ajoutProdMenuItem_Click);
             // 
             // gérerProdDopantToolStripMenuItem
             // 
             this.gérerProdDopantToolStripMenuItem.Name = "gérerProdDopantToolStripMenuItem";
-            this.gérerProdDopantToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gérerProdDopantToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.gérerProdDopantToolStripMenuItem.Text = "Gérer";
             this.gérerProdDopantToolStripMenuItem.Click += new System.EventHandler(this.gérerProdDopantProdMenuItem_Click);
             // 
@@ -81,14 +81,14 @@
             // ajoutTypeTriathlonsMenuItem
             // 
             this.ajoutTypeTriathlonsMenuItem.Name = "ajoutTypeTriathlonsMenuItem";
-            this.ajoutTypeTriathlonsMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ajoutTypeTriathlonsMenuItem.Size = new System.Drawing.Size(160, 26);
             this.ajoutTypeTriathlonsMenuItem.Text = "Nouveau...";
             this.ajoutTypeTriathlonsMenuItem.Click += new System.EventHandler(this.ajoutTypeTriathlonsMenuItem_Click);
             // 
             // gérerTypeTriathlonToolStripMenuItem
             // 
             this.gérerTypeTriathlonToolStripMenuItem.Name = "gérerTypeTriathlonToolStripMenuItem";
-            this.gérerTypeTriathlonToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gérerTypeTriathlonToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.gérerTypeTriathlonToolStripMenuItem.Text = "Gérer";
             this.gérerTypeTriathlonToolStripMenuItem.Click += new System.EventHandler(this.gérerTypeTriathlonToolStripMenuItem_Click);
             // 
@@ -104,33 +104,33 @@
             // ajoutTriathletesMenuItem
             // 
             this.ajoutTriathletesMenuItem.Name = "ajoutTriathletesMenuItem";
-            this.ajoutTriathletesMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ajoutTriathletesMenuItem.Size = new System.Drawing.Size(160, 26);
             this.ajoutTriathletesMenuItem.Text = "Nouveau...";
             this.ajoutTriathletesMenuItem.Click += new System.EventHandler(this.ajoutTriathletesMenuItem_Click);
             // 
             // gérerTriathletesMenuItem
             // 
             this.gérerTriathletesMenuItem.Name = "gérerTriathletesMenuItem";
-            this.gérerTriathletesMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gérerTriathletesMenuItem.Size = new System.Drawing.Size(160, 26);
             this.gérerTriathletesMenuItem.Text = "Gérer";
             this.gérerTriathletesMenuItem.Click += new System.EventHandler(this.gérerTriathletesMenuItem_Click);
             // 
             // menuItemTriathlon
             // 
             this.menuItemTriathlon.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajoutTriathonsMenuItem,
+            this.ajoutTriathlonsMenuItem,
             this.gérerTriathlonsMenuItem,
             this.classementMenuItem});
             this.menuItemTriathlon.Name = "menuItemTriathlon";
             this.menuItemTriathlon.Size = new System.Drawing.Size(87, 24);
             this.menuItemTriathlon.Text = "Triathlons";
             // 
-            // ajoutTriathonsMenuItem
+            // ajoutTriathlonsMenuItem
             // 
-            this.ajoutTriathonsMenuItem.Name = "ajoutTriathonsMenuItem";
-            this.ajoutTriathonsMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.ajoutTriathonsMenuItem.Text = "Nouveau...";
-            this.ajoutTriathonsMenuItem.Click += new System.EventHandler(this.ajoutTriathonsMenuItem_Click);
+            this.ajoutTriathlonsMenuItem.Name = "ajoutTriathlonsMenuItem";
+            this.ajoutTriathlonsMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ajoutTriathlonsMenuItem.Text = "Nouveau...";
+            this.ajoutTriathlonsMenuItem.Click += new System.EventHandler(this.ajoutTriathlonsMenuItem_Click);
             // 
             // gérerTriathlonsMenuItem
             // 
@@ -153,34 +153,34 @@
             this.menuItemQUITTER.Text = "QUITTER";
             this.menuItemQUITTER.Click += new System.EventHandler(this.menuItemQUITTER_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemProdDopant,
             this.menuItemTypesTriathlons,
             this.menuItemTriathletes,
             this.menuItemTriathlon,
             this.menuItemQUITTER});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // FrmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMDI";
             this.Text = "Projet - Gestion des triathlons";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,14 +193,14 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemTriathletes;
         private System.Windows.Forms.ToolStripMenuItem menuItemTriathlon;
         private System.Windows.Forms.ToolStripMenuItem menuItemQUITTER;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem ajoutProdMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gérerProdDopantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajoutTypeTriathlonsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gérerTypeTriathlonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajoutTriathletesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gérerTriathletesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ajoutTriathonsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajoutTriathlonsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gérerTriathlonsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classementMenuItem;
     }

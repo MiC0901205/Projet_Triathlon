@@ -127,7 +127,7 @@
             this.Controls.Add(this.lblLibelle);
             this.Controls.Add(this.lblTitre);
             this.Controls.Add(this.txtLibelle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAjoutProdDopant";
             this.Text = "Ajout d\'un nouveau produit dopant";
             this.Load += new System.EventHandler(this.FrmAjoutProdDopant_Load);
