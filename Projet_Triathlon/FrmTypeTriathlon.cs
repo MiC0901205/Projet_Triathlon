@@ -17,5 +17,18 @@ namespace Projet_Triathlon
             InitializeComponent();
         }
 
+        private void FrmTypeTriathlon_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //On charge la comboBox avec tous les produits de la base de données au chargement du formulaire
+                bindSrcTypeTriathlon.DataSource = ClassePasserelle.GetLesTypesTriathlon();
+                //bindSrcTriathlon.DataSource = ClassePasserelle.GetLesTriathlonsByType();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

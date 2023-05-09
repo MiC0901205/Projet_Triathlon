@@ -16,5 +16,23 @@ namespace Projet_Triathlon
         {
             InitializeComponent();
         }
+
+        private void FrmTriathlete_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //On charge la comboBox avec tous les produits de la base de données au chargement du formulaire
+                bindSrcTriathlete.DataSource = ClassePasserelle.GetLesTriathletes(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void triathleteDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tabControlTriathlete.SelectedIndex = 1;
+        }
     }
 }

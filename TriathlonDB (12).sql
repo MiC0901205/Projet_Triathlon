@@ -4,7 +4,7 @@
 -- --------------------------------------------------------
 create database TriathlonDB;
 go
-create login EntityTriathlon with password = '21Sl@mM€rm0z23';
+--create login EntityTriathlon with password = '21Sl@mM€rm0z23';
 go
 use TriathlonDB;
 go
@@ -94,6 +94,7 @@ CREATE TABLE Controler(
 --
 -- Trigger et Procédure stocké
 --
+go
 CREATE OR ALTER TRIGGER TI_TriathleteAge on Triathlete
 AFTER insert
 AS 
@@ -142,6 +143,7 @@ go
 --
 -- Privilège utilisateur
 --
+GRANT SELECT TO EntityTriathlon
 GRANT INSERT ON Triathlon TO EntityTriathlon
 GRANT UPDATE ON Triathlon TO EntityTriathlon
 GRANT DELETE ON Inscription TO EntityTriathlon
@@ -298,7 +300,6 @@ INSERT INTO Triathlete (nom, prenom, adresse, cp, ville, dateNaissance) VALUES
 ('Passion', 'Cécile', '11 Rue des Amoureux', 69003, 'Lyon', '1978/02/22'),
 ('Ciel', 'Nathalie', '20 Rue des Nuages', 33000, 'Bordeaux', '1985/11/11')
 
-select * from inscription
 INSERT INTO Inscription(numTriath, dateInscription, tempsNatation, tempsCourse, tempsCyclisme, numLicence) VALUES
 (1, '2023-02-01', 12, 23.09, 35.35, 1),
 (2, '2023-01-24', 7.50, 12.10, 17.75, 5),
@@ -443,7 +444,7 @@ INSERT INTO Controler(codeDop, numTriath, numDossard, mesureEtablie) VALUES
 (2, 15, 7, 0.14),
 (3, 15, 3, 0.23)
 
-
+go
 CREATE OR ALTER TRIGGER TI_InscriptionClose on Inscription
 AFTER insert
 AS 

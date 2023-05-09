@@ -28,325 +28,355 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label lblCodeType;
+            System.Windows.Forms.Label lblDesignation;
+            System.Windows.Forms.Label lblDistanceCourse;
+            System.Windows.Forms.Label lblDistanceCyclisme;
+            System.Windows.Forms.Label lblDistanceNatation;
+            System.Windows.Forms.Label lblNom;
             this.grpbxLesTriathlons = new System.Windows.Forms.GroupBox();
+            this.triathlonDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindSrcTriathlon = new System.Windows.Forms.BindingSource(this.components);
             this.btSupprimerTriathlon = new System.Windows.Forms.Button();
-            this.gridTriathlon = new System.Windows.Forms.DataGridView();
-            this.colNumCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNomCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrenomCLi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistanceCyc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbxDetailTypeTriath = new System.Windows.Forms.GroupBox();
-            this.txtDistanceCourse = new System.Windows.Forms.TextBox();
-            this.lblDistanceCourse = new System.Windows.Forms.Label();
-            this.txtDistanceNatation = new System.Windows.Forms.TextBox();
-            this.lblDistanceNatation = new System.Windows.Forms.Label();
-            this.txtDistanceCyclisme = new System.Windows.Forms.TextBox();
-            this.lblDistanceCyclisme = new System.Windows.Forms.Label();
-            this.txtNom = new System.Windows.Forms.TextBox();
-            this.lblNom = new System.Windows.Forms.Label();
-            this.btModifier = new System.Windows.Forms.Button();
+            this.txtCodeType = new System.Windows.Forms.TextBox();
+            this.bindSrcTypeTriathlon = new System.Windows.Forms.BindingSource(this.components);
             this.txtDesignation = new System.Windows.Forms.TextBox();
-            this.lblDesignation = new System.Windows.Forms.Label();
+            this.txtDistanceCourse = new System.Windows.Forms.TextBox();
+            this.txtDistanceCyclisme = new System.Windows.Forms.TextBox();
+            this.txtDistanceNatation = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.btSupprimer = new System.Windows.Forms.Button();
+            this.btModifier = new System.Windows.Forms.Button();
             this.grpbxLesTypesTriath = new System.Windows.Forms.GroupBox();
-            this.btNouveauTypeTriath = new System.Windows.Forms.Button();
+            this.btNouveau = new System.Windows.Forms.Button();
             this.comboBxLesTypesTriath = new System.Windows.Forms.ComboBox();
-            this.btSupprimerTypeTriath = new System.Windows.Forms.Button();
+            lblCodeType = new System.Windows.Forms.Label();
+            lblDesignation = new System.Windows.Forms.Label();
+            lblDistanceCourse = new System.Windows.Forms.Label();
+            lblDistanceCyclisme = new System.Windows.Forms.Label();
+            lblDistanceNatation = new System.Windows.Forms.Label();
+            lblNom = new System.Windows.Forms.Label();
             this.grpbxLesTriathlons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridTriathlon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.triathlonDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcTriathlon)).BeginInit();
             this.grpbxDetailTypeTriath.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcTypeTriathlon)).BeginInit();
             this.grpbxLesTypesTriath.SuspendLayout();
             this.SuspendLayout();
             // 
+            // lblCodeType
+            // 
+            lblCodeType.AutoSize = true;
+            lblCodeType.Location = new System.Drawing.Point(13, 41);
+            lblCodeType.Name = "lblCodeType";
+            lblCodeType.Size = new System.Drawing.Size(81, 16);
+            lblCodeType.TabIndex = 7;
+            lblCodeType.Text = "Code Type :";
+            // 
+            // lblDesignation
+            // 
+            lblDesignation.AutoSize = true;
+            lblDesignation.Location = new System.Drawing.Point(13, 87);
+            lblDesignation.Name = "lblDesignation";
+            lblDesignation.Size = new System.Drawing.Size(85, 16);
+            lblDesignation.TabIndex = 9;
+            lblDesignation.Text = "Designation :";
+            // 
+            // lblDistanceCourse
+            // 
+            lblDistanceCourse.AutoSize = true;
+            lblDistanceCourse.Location = new System.Drawing.Point(13, 132);
+            lblDistanceCourse.Name = "lblDistanceCourse";
+            lblDistanceCourse.Size = new System.Drawing.Size(112, 16);
+            lblDistanceCourse.TabIndex = 11;
+            lblDistanceCourse.Text = "Distance Course :";
+            // 
+            // lblDistanceCyclisme
+            // 
+            lblDistanceCyclisme.AutoSize = true;
+            lblDistanceCyclisme.Location = new System.Drawing.Point(13, 183);
+            lblDistanceCyclisme.Name = "lblDistanceCyclisme";
+            lblDistanceCyclisme.Size = new System.Drawing.Size(121, 16);
+            lblDistanceCyclisme.TabIndex = 13;
+            lblDistanceCyclisme.Text = "Distance Cyclisme:";
+            // 
+            // lblDistanceNatation
+            // 
+            lblDistanceNatation.AutoSize = true;
+            lblDistanceNatation.Location = new System.Drawing.Point(13, 231);
+            lblDistanceNatation.Name = "lblDistanceNatation";
+            lblDistanceNatation.Size = new System.Drawing.Size(116, 16);
+            lblDistanceNatation.TabIndex = 15;
+            lblDistanceNatation.Text = "Distance Natation:";
+            // 
+            // lblNom
+            // 
+            lblNom.AutoSize = true;
+            lblNom.Location = new System.Drawing.Point(13, 283);
+            lblNom.Name = "lblNom";
+            lblNom.Size = new System.Drawing.Size(39, 16);
+            lblNom.TabIndex = 17;
+            lblNom.Text = "Nom:";
+            // 
             // grpbxLesTriathlons
             // 
+            this.grpbxLesTriathlons.Controls.Add(this.triathlonDataGridView);
             this.grpbxLesTriathlons.Controls.Add(this.btSupprimerTriathlon);
-            this.grpbxLesTriathlons.Controls.Add(this.gridTriathlon);
-            this.grpbxLesTriathlons.Location = new System.Drawing.Point(230, 110);
-            this.grpbxLesTriathlons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxLesTriathlons.Location = new System.Drawing.Point(307, 135);
+            this.grpbxLesTriathlons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpbxLesTriathlons.Name = "grpbxLesTriathlons";
-            this.grpbxLesTriathlons.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpbxLesTriathlons.Size = new System.Drawing.Size(559, 329);
+            this.grpbxLesTriathlons.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpbxLesTriathlons.Size = new System.Drawing.Size(745, 405);
             this.grpbxLesTriathlons.TabIndex = 12;
             this.grpbxLesTriathlons.TabStop = false;
             this.grpbxLesTriathlons.Text = "Les triathlons";
+            // 
+            // triathlonDataGridView
+            // 
+            this.triathlonDataGridView.AllowUserToAddRows = false;
+            this.triathlonDataGridView.AllowUserToDeleteRows = false;
+            this.triathlonDataGridView.AutoGenerateColumns = false;
+            this.triathlonDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.triathlonDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.triathlonDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.triathlonDataGridView.DataSource = this.bindSrcTriathlon;
+            this.triathlonDataGridView.Location = new System.Drawing.Point(6, 27);
+            this.triathlonDataGridView.Name = "triathlonDataGridView";
+            this.triathlonDataGridView.ReadOnly = true;
+            this.triathlonDataGridView.RowHeadersWidth = 51;
+            this.triathlonDataGridView.RowTemplate.Height = 24;
+            this.triathlonDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.triathlonDataGridView.Size = new System.Drawing.Size(733, 298);
+            this.triathlonDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NumTriath";
+            this.dataGridViewTextBoxColumn1.HeaderText = "NumTriath";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 98;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CodeTypeT";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CodeTypeT";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Nom";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nom";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Lieu";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Lieu";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "DateCompet";
+            this.dataGridViewTextBoxColumn5.HeaderText = "DateCompet";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 112;
+            // 
+            // bindSrcTriathlon
+            // 
+            this.bindSrcTriathlon.DataSource = typeof(Projet_Triathlon.Triathlon);
             // 
             // btSupprimerTriathlon
             // 
             this.btSupprimerTriathlon.BackColor = System.Drawing.Color.OrangeRed;
             this.btSupprimerTriathlon.Enabled = false;
-            this.btSupprimerTriathlon.Location = new System.Drawing.Point(192, 268);
-            this.btSupprimerTriathlon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSupprimerTriathlon.Location = new System.Drawing.Point(256, 330);
+            this.btSupprimerTriathlon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSupprimerTriathlon.Name = "btSupprimerTriathlon";
-            this.btSupprimerTriathlon.Size = new System.Drawing.Size(142, 38);
+            this.btSupprimerTriathlon.Size = new System.Drawing.Size(189, 47);
             this.btSupprimerTriathlon.TabIndex = 6;
-            this.btSupprimerTriathlon.Text = "Supprimer";
+            this.btSupprimerTriathlon.Text = "Supprimer ce triathlon";
             this.btSupprimerTriathlon.UseVisualStyleBackColor = false;
-            // 
-            // gridTriathlon
-            // 
-            this.gridTriathlon.AllowUserToAddRows = false;
-            this.gridTriathlon.AllowUserToDeleteRows = false;
-            this.gridTriathlon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gridTriathlon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridTriathlon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNumCli,
-            this.colNomCli,
-            this.colPrenomCLi,
-            this.DistanceCyc,
-            this.Column1,
-            this.Column2});
-            this.gridTriathlon.Location = new System.Drawing.Point(10, 19);
-            this.gridTriathlon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gridTriathlon.MultiSelect = false;
-            this.gridTriathlon.Name = "gridTriathlon";
-            this.gridTriathlon.ReadOnly = true;
-            this.gridTriathlon.RowHeadersWidth = 51;
-            this.gridTriathlon.RowTemplate.Height = 28;
-            this.gridTriathlon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTriathlon.Size = new System.Drawing.Size(549, 224);
-            this.gridTriathlon.TabIndex = 0;
-            // 
-            // colNumCli
-            // 
-            this.colNumCli.HeaderText = "Code";
-            this.colNumCli.MinimumWidth = 6;
-            this.colNumCli.Name = "colNumCli";
-            this.colNumCli.ReadOnly = true;
-            this.colNumCli.Width = 57;
-            // 
-            // colNomCli
-            // 
-            this.colNomCli.HeaderText = "Désignation";
-            this.colNomCli.MinimumWidth = 6;
-            this.colNomCli.Name = "colNomCli";
-            this.colNomCli.ReadOnly = true;
-            this.colNomCli.Width = 88;
-            // 
-            // colPrenomCLi
-            // 
-            this.colPrenomCLi.HeaderText = "Nom";
-            this.colPrenomCLi.MinimumWidth = 6;
-            this.colPrenomCLi.Name = "colPrenomCLi";
-            this.colPrenomCLi.ReadOnly = true;
-            this.colPrenomCLi.Width = 54;
-            // 
-            // DistanceCyc
-            // 
-            this.DistanceCyc.HeaderText = "DistanceCyc";
-            this.DistanceCyc.MinimumWidth = 6;
-            this.DistanceCyc.Name = "DistanceCyc";
-            this.DistanceCyc.ReadOnly = true;
-            this.DistanceCyc.Width = 92;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "DistanceNat";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 91;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DistanceCourse";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 107;
             // 
             // grpbxDetailTypeTriath
             // 
-            this.grpbxDetailTypeTriath.Controls.Add(this.btSupprimerTypeTriath);
-            this.grpbxDetailTypeTriath.Controls.Add(this.txtDistanceCourse);
-            this.grpbxDetailTypeTriath.Controls.Add(this.lblDistanceCourse);
-            this.grpbxDetailTypeTriath.Controls.Add(this.txtDistanceNatation);
-            this.grpbxDetailTypeTriath.Controls.Add(this.lblDistanceNatation);
-            this.grpbxDetailTypeTriath.Controls.Add(this.txtDistanceCyclisme);
-            this.grpbxDetailTypeTriath.Controls.Add(this.lblDistanceCyclisme);
-            this.grpbxDetailTypeTriath.Controls.Add(this.txtNom);
-            this.grpbxDetailTypeTriath.Controls.Add(this.lblNom);
-            this.grpbxDetailTypeTriath.Controls.Add(this.btModifier);
+            this.grpbxDetailTypeTriath.Controls.Add(lblCodeType);
+            this.grpbxDetailTypeTriath.Controls.Add(this.txtCodeType);
+            this.grpbxDetailTypeTriath.Controls.Add(lblDesignation);
             this.grpbxDetailTypeTriath.Controls.Add(this.txtDesignation);
-            this.grpbxDetailTypeTriath.Controls.Add(this.lblDesignation);
-            this.grpbxDetailTypeTriath.Location = new System.Drawing.Point(11, 110);
-            this.grpbxDetailTypeTriath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxDetailTypeTriath.Controls.Add(lblDistanceCourse);
+            this.grpbxDetailTypeTriath.Controls.Add(this.txtDistanceCourse);
+            this.grpbxDetailTypeTriath.Controls.Add(lblDistanceCyclisme);
+            this.grpbxDetailTypeTriath.Controls.Add(this.txtDistanceCyclisme);
+            this.grpbxDetailTypeTriath.Controls.Add(lblDistanceNatation);
+            this.grpbxDetailTypeTriath.Controls.Add(this.txtDistanceNatation);
+            this.grpbxDetailTypeTriath.Controls.Add(lblNom);
+            this.grpbxDetailTypeTriath.Controls.Add(this.txtNom);
+            this.grpbxDetailTypeTriath.Controls.Add(this.btSupprimer);
+            this.grpbxDetailTypeTriath.Controls.Add(this.btModifier);
+            this.grpbxDetailTypeTriath.Location = new System.Drawing.Point(15, 135);
+            this.grpbxDetailTypeTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpbxDetailTypeTriath.Name = "grpbxDetailTypeTriath";
-            this.grpbxDetailTypeTriath.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpbxDetailTypeTriath.Size = new System.Drawing.Size(215, 329);
+            this.grpbxDetailTypeTriath.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpbxDetailTypeTriath.Size = new System.Drawing.Size(286, 409);
             this.grpbxDetailTypeTriath.TabIndex = 11;
             this.grpbxDetailTypeTriath.TabStop = false;
             this.grpbxDetailTypeTriath.Text = "Détail du type de triathlon";
             // 
+            // txtCodeType
+            // 
+            this.txtCodeType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcTypeTriathlon, "CodeTypeT", true));
+            this.txtCodeType.Location = new System.Drawing.Point(140, 35);
+            this.txtCodeType.Name = "txtCodeType";
+            this.txtCodeType.Size = new System.Drawing.Size(119, 22);
+            this.txtCodeType.TabIndex = 8;
+            // 
+            // bindSrcTypeTriathlon
+            // 
+            this.bindSrcTypeTriathlon.DataSource = typeof(Projet_Triathlon.TypeTriathlon);
+            // 
+            // txtDesignation
+            // 
+            this.txtDesignation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcTypeTriathlon, "Designation", true));
+            this.txtDesignation.Location = new System.Drawing.Point(140, 81);
+            this.txtDesignation.Name = "txtDesignation";
+            this.txtDesignation.Size = new System.Drawing.Size(119, 22);
+            this.txtDesignation.TabIndex = 10;
+            // 
             // txtDistanceCourse
             // 
-            this.txtDistanceCourse.Location = new System.Drawing.Point(12, 248);
-            this.txtDistanceCourse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDistanceCourse.MaxLength = 200;
+            this.txtDistanceCourse.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcTypeTriathlon, "DistanceCourse", true));
+            this.txtDistanceCourse.Location = new System.Drawing.Point(140, 126);
             this.txtDistanceCourse.Name = "txtDistanceCourse";
-            this.txtDistanceCourse.Size = new System.Drawing.Size(109, 20);
+            this.txtDistanceCourse.Size = new System.Drawing.Size(119, 22);
             this.txtDistanceCourse.TabIndex = 12;
-            // 
-            // lblDistanceCourse
-            // 
-            this.lblDistanceCourse.AutoSize = true;
-            this.lblDistanceCourse.Location = new System.Drawing.Point(16, 230);
-            this.lblDistanceCourse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDistanceCourse.Name = "lblDistanceCourse";
-            this.lblDistanceCourse.Size = new System.Drawing.Size(91, 13);
-            this.lblDistanceCourse.TabIndex = 11;
-            this.lblDistanceCourse.Text = "Distance Course :";
-            // 
-            // txtDistanceNatation
-            // 
-            this.txtDistanceNatation.Location = new System.Drawing.Point(12, 198);
-            this.txtDistanceNatation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDistanceNatation.MaxLength = 200;
-            this.txtDistanceNatation.Name = "txtDistanceNatation";
-            this.txtDistanceNatation.Size = new System.Drawing.Size(109, 20);
-            this.txtDistanceNatation.TabIndex = 10;
-            // 
-            // lblDistanceNatation
-            // 
-            this.lblDistanceNatation.AutoSize = true;
-            this.lblDistanceNatation.Location = new System.Drawing.Point(16, 180);
-            this.lblDistanceNatation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDistanceNatation.Name = "lblDistanceNatation";
-            this.lblDistanceNatation.Size = new System.Drawing.Size(98, 13);
-            this.lblDistanceNatation.TabIndex = 9;
-            this.lblDistanceNatation.Text = "Distance Natation :";
             // 
             // txtDistanceCyclisme
             // 
-            this.txtDistanceCyclisme.Location = new System.Drawing.Point(12, 147);
-            this.txtDistanceCyclisme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDistanceCyclisme.MaxLength = 200;
+            this.txtDistanceCyclisme.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcTypeTriathlon, "DistanceCyclisme", true));
+            this.txtDistanceCyclisme.Location = new System.Drawing.Point(140, 177);
             this.txtDistanceCyclisme.Name = "txtDistanceCyclisme";
-            this.txtDistanceCyclisme.Size = new System.Drawing.Size(109, 20);
-            this.txtDistanceCyclisme.TabIndex = 8;
+            this.txtDistanceCyclisme.Size = new System.Drawing.Size(119, 22);
+            this.txtDistanceCyclisme.TabIndex = 14;
             // 
-            // lblDistanceCyclisme
+            // txtDistanceNatation
             // 
-            this.lblDistanceCyclisme.AutoSize = true;
-            this.lblDistanceCyclisme.Location = new System.Drawing.Point(16, 129);
-            this.lblDistanceCyclisme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDistanceCyclisme.Name = "lblDistanceCyclisme";
-            this.lblDistanceCyclisme.Size = new System.Drawing.Size(99, 13);
-            this.lblDistanceCyclisme.TabIndex = 7;
-            this.lblDistanceCyclisme.Text = "Distance Cyclisme :";
+            this.txtDistanceNatation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcTypeTriathlon, "DistanceNatation", true));
+            this.txtDistanceNatation.Location = new System.Drawing.Point(140, 225);
+            this.txtDistanceNatation.Name = "txtDistanceNatation";
+            this.txtDistanceNatation.Size = new System.Drawing.Size(119, 22);
+            this.txtDistanceNatation.TabIndex = 16;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(12, 98);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNom.MaxLength = 200;
+            this.txtNom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcTypeTriathlon, "Nom", true));
+            this.txtNom.Location = new System.Drawing.Point(57, 277);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(155, 20);
-            this.txtNom.TabIndex = 6;
+            this.txtNom.Size = new System.Drawing.Size(202, 22);
+            this.txtNom.TabIndex = 18;
             // 
-            // lblNom
+            // btSupprimer
             // 
-            this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(16, 80);
-            this.lblNom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(35, 13);
-            this.lblNom.TabIndex = 5;
-            this.lblNom.Text = "Nom :";
+            this.btSupprimer.BackColor = System.Drawing.Color.OrangeRed;
+            this.btSupprimer.Enabled = false;
+            this.btSupprimer.Location = new System.Drawing.Point(125, 356);
+            this.btSupprimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSupprimer.Name = "btSupprimer";
+            this.btSupprimer.Size = new System.Drawing.Size(109, 33);
+            this.btSupprimer.TabIndex = 7;
+            this.btSupprimer.Text = "Supprimer";
+            this.btSupprimer.UseVisualStyleBackColor = false;
             // 
             // btModifier
             // 
             this.btModifier.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btModifier.Enabled = false;
-            this.btModifier.Location = new System.Drawing.Point(12, 289);
-            this.btModifier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btModifier.Location = new System.Drawing.Point(16, 356);
+            this.btModifier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btModifier.Name = "btModifier";
-            this.btModifier.Size = new System.Drawing.Size(78, 27);
+            this.btModifier.Size = new System.Drawing.Size(104, 33);
             this.btModifier.TabIndex = 4;
             this.btModifier.Text = "Modifier";
             this.btModifier.UseVisualStyleBackColor = false;
             // 
-            // txtDesignation
-            // 
-            this.txtDesignation.Location = new System.Drawing.Point(12, 48);
-            this.txtDesignation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDesignation.MaxLength = 200;
-            this.txtDesignation.Name = "txtDesignation";
-            this.txtDesignation.Size = new System.Drawing.Size(73, 20);
-            this.txtDesignation.TabIndex = 1;
-            // 
-            // lblDesignation
-            // 
-            this.lblDesignation.AutoSize = true;
-            this.lblDesignation.Location = new System.Drawing.Point(16, 30);
-            this.lblDesignation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDesignation.Name = "lblDesignation";
-            this.lblDesignation.Size = new System.Drawing.Size(69, 13);
-            this.lblDesignation.TabIndex = 0;
-            this.lblDesignation.Text = "Désignation :";
-            // 
             // grpbxLesTypesTriath
             // 
-            this.grpbxLesTypesTriath.Controls.Add(this.btNouveauTypeTriath);
+            this.grpbxLesTypesTriath.Controls.Add(this.btNouveau);
             this.grpbxLesTypesTriath.Controls.Add(this.comboBxLesTypesTriath);
             this.grpbxLesTypesTriath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbxLesTypesTriath.Location = new System.Drawing.Point(11, 11);
-            this.grpbxLesTypesTriath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpbxLesTypesTriath.Location = new System.Drawing.Point(15, 14);
+            this.grpbxLesTypesTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpbxLesTypesTriath.Name = "grpbxLesTypesTriath";
-            this.grpbxLesTypesTriath.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpbxLesTypesTriath.Size = new System.Drawing.Size(778, 86);
+            this.grpbxLesTypesTriath.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpbxLesTypesTriath.Size = new System.Drawing.Size(1037, 106);
             this.grpbxLesTypesTriath.TabIndex = 10;
             this.grpbxLesTypesTriath.TabStop = false;
             this.grpbxLesTypesTriath.Text = "Selectionner un type de triathlon dans la liste :";
             // 
-            // btNouveauTypeTriath
+            // btNouveau
             // 
-            this.btNouveauTypeTriath.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btNouveauTypeTriath.Location = new System.Drawing.Point(458, 17);
-            this.btNouveauTypeTriath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btNouveauTypeTriath.Name = "btNouveauTypeTriath";
-            this.btNouveauTypeTriath.Size = new System.Drawing.Size(141, 40);
-            this.btNouveauTypeTriath.TabIndex = 7;
-            this.btNouveauTypeTriath.Text = "Nouveau type de triathlon";
-            this.btNouveauTypeTriath.UseVisualStyleBackColor = false;
+            this.btNouveau.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btNouveau.Location = new System.Drawing.Point(611, 21);
+            this.btNouveau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btNouveau.Name = "btNouveau";
+            this.btNouveau.Size = new System.Drawing.Size(188, 49);
+            this.btNouveau.TabIndex = 7;
+            this.btNouveau.Text = "Nouveau type de triathlon";
+            this.btNouveau.UseVisualStyleBackColor = false;
             // 
             // comboBxLesTypesTriath
             // 
+            this.comboBxLesTypesTriath.DataSource = this.bindSrcTypeTriathlon;
             this.comboBxLesTypesTriath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBxLesTypesTriath.FormattingEnabled = true;
-            this.comboBxLesTypesTriath.Location = new System.Drawing.Point(43, 31);
-            this.comboBxLesTypesTriath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBxLesTypesTriath.Location = new System.Drawing.Point(57, 38);
+            this.comboBxLesTypesTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBxLesTypesTriath.Name = "comboBxLesTypesTriath";
-            this.comboBxLesTypesTriath.Size = new System.Drawing.Size(375, 21);
+            this.comboBxLesTypesTriath.Size = new System.Drawing.Size(499, 24);
             this.comboBxLesTypesTriath.TabIndex = 0;
-            // 
-            // btSupprimerTypeTriath
-            // 
-            this.btSupprimerTypeTriath.BackColor = System.Drawing.Color.OrangeRed;
-            this.btSupprimerTypeTriath.Enabled = false;
-            this.btSupprimerTypeTriath.Location = new System.Drawing.Point(94, 289);
-            this.btSupprimerTypeTriath.Margin = new System.Windows.Forms.Padding(2);
-            this.btSupprimerTypeTriath.Name = "btSupprimerTypeTriath";
-            this.btSupprimerTypeTriath.Size = new System.Drawing.Size(82, 27);
-            this.btSupprimerTypeTriath.TabIndex = 7;
-            this.btSupprimerTypeTriath.Text = "Supprimer";
-            this.btSupprimerTypeTriath.UseVisualStyleBackColor = false;
             // 
             // FrmTypeTriathlon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpbxLesTriathlons);
             this.Controls.Add(this.grpbxDetailTypeTriath);
             this.Controls.Add(this.grpbxLesTypesTriath);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTypeTriathlon";
             this.Text = "Gestion des types de triathlon";
+            this.Load += new System.EventHandler(this.FrmTypeTriathlon_Load);
             this.grpbxLesTriathlons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridTriathlon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.triathlonDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcTriathlon)).EndInit();
             this.grpbxDetailTypeTriath.ResumeLayout(false);
             this.grpbxDetailTypeTriath.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcTypeTriathlon)).EndInit();
             this.grpbxLesTypesTriath.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -356,28 +386,25 @@
 
         private System.Windows.Forms.GroupBox grpbxLesTriathlons;
         private System.Windows.Forms.Button btSupprimerTriathlon;
-        private System.Windows.Forms.DataGridView gridTriathlon;
         private System.Windows.Forms.GroupBox grpbxDetailTypeTriath;
         private System.Windows.Forms.Button btModifier;
-        private System.Windows.Forms.TextBox txtDesignation;
-        private System.Windows.Forms.Label lblDesignation;
         private System.Windows.Forms.GroupBox grpbxLesTypesTriath;
-        private System.Windows.Forms.Button btNouveauTypeTriath;
+        private System.Windows.Forms.Button btNouveau;
         private System.Windows.Forms.ComboBox comboBxLesTypesTriath;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumCli;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNomCli;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrenomCLi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DistanceCyc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.Label lblNom;
-        private System.Windows.Forms.TextBox txtDistanceCyclisme;
-        private System.Windows.Forms.Label lblDistanceCyclisme;
+        private System.Windows.Forms.Button btSupprimer;
+        private System.Windows.Forms.TextBox txtCodeType;
+        private System.Windows.Forms.BindingSource bindSrcTypeTriathlon;
+        private System.Windows.Forms.TextBox txtDesignation;
         private System.Windows.Forms.TextBox txtDistanceCourse;
-        private System.Windows.Forms.Label lblDistanceCourse;
+        private System.Windows.Forms.TextBox txtDistanceCyclisme;
         private System.Windows.Forms.TextBox txtDistanceNatation;
-        private System.Windows.Forms.Label lblDistanceNatation;
-        private System.Windows.Forms.Button btSupprimerTypeTriath;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.DataGridView triathlonDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.BindingSource bindSrcTriathlon;
     }
 }
