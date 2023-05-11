@@ -12,7 +12,7 @@ namespace Projet_Triathlon
 {
     public static class ClassePasserelle
     {
-        private static SqlConnection connexionBaseTriathlon = new SqlConnection("Data Source=LAPTOP-AT6B1DPN; Initial Catalog=TriathlonDB; user Id=EntityTriathlon; password=21Sl@mM€rm0z23");
+        private static SqlConnection connexionBaseTriathlon = new SqlConnection("Data Source=DESKTOP-J6GFBAV; Initial Catalog=TriathlonDB; user Id=EntityTriathlon; password=21Sl@mM€rm0z23");
 
         /// <summary>
         /// Retourne tous les types de triathlon présent dans la base de données
@@ -227,7 +227,7 @@ namespace Projet_Triathlon
         public static List<Triathlete> GetClassementTriathlete(int numTriath)
         {
             List<Triathlete> lesTriathletes = new List<Triathlete>();
-            
+
             SqlCommand reqGetLeClassement = new SqlCommand("EXEC GetClassementByTriathlon @numT;", connexionBaseTriathlon);
             reqGetLeClassement.Parameters.AddWithValue("@numT", numTriath);
 
@@ -257,36 +257,33 @@ namespace Projet_Triathlon
             return lesTriathletes;
         }
 
-        /// à voir si besoin
         /// <summary>
-        /// Retourne tous les triathletes présent dans la base de données pour le triathlon passé en paramètre
+        /// Retourne tous les triathlons présent dans la base de données pour le type triatlon passé en paramètre
         /// </summary>
-        /// <param name="numTriath">Identifiant du triathlon pour lequel on souhaite obtenir les triathletes</param>
-        /// <returns>Collection de triathletes</returns>
-        public static List<Triathlete> GetLesTriathletesByTriathlon(int numTriath)
+        /// <param name="typeTriathlon">Objet type triathlon</param>
+        /// <returns>Collection de triathlons</returns>
+        public static List<Triathlon> GetLesTriathlonsByType(TypeTriathlon typeTriathlon)
         {
-            List<Triathlete> lesTriathletes = new List<Triathlete>();
+            List<Triathlon> lesTriathlons = new List<Triathlon>();
 
-            SqlCommand reqGetLesTriathletesByTriath = new SqlCommand("SELECT T.numLicence, nom, prenom, adresse, cp, ville, dateNaissance FROM Triathlete T Join Inscription I on I.numLicence = T.numLicence WHERE numTriath = @num;", connexionBaseTriathlon);
+            SqlCommand reqGetLesTriathlonsByType = new SqlCommand("SELECT numTriath, nom, lieu, dateCompet, codeTypeT FROM Triathlon WHERE CodeTypeT = @num;", connexionBaseTriathlon);
 
-            reqGetLesTriathletesByTriath.Parameters.AddWithValue("@num", numTriath);
+            reqGetLesTriathlonsByType.Parameters.AddWithValue("@num", typeTriathlon.CodeTypeT);
 
             try
             {
                 connexionBaseTriathlon.Open();
-                SqlDataReader readerLesTriathletes = reqGetLesTriathletesByTriath.ExecuteReader();
+                SqlDataReader readerLesTriathlons = reqGetLesTriathlonsByType.ExecuteReader();
 
-                while (readerLesTriathletes.Read())
+                while (readerLesTriathlons.Read())
                 {
-                    int numLicence = (int)readerLesTriathletes[0];
-                    string nom = readerLesTriathletes[1].ToString();
-                    string prenom = readerLesTriathletes[2].ToString();
-                    string adresse = readerLesTriathletes[3].ToString();
-                    int cp = (int)readerLesTriathletes[4];
-                    string ville = readerLesTriathletes[5].ToString();
-                    DateTime dateN = (DateTime)readerLesTriathletes[6];
+                    int numTriath = (int)readerLesTriathlons[0];
+                    string nom = readerLesTriathlons[1].ToString();
+                    string lieu = readerLesTriathlons[2].ToString();
+                    DateTime dateC = (DateTime)readerLesTriathlons[3];
+                    int codeTypeT = (int)readerLesTriathlons[4];
 
-                    lesTriathletes.Add(new Triathlete(numLicence, cp, nom, prenom, adresse, ville, dateN));
+                    lesTriathlons.Add(new Triathlon(numTriath, nom, lieu, dateC, codeTypeT));
                 }
             }
             finally
@@ -294,20 +291,95 @@ namespace Projet_Triathlon
                 connexionBaseTriathlon.Close();
             }
 
-            return lesTriathletes;
+            return lesTriathlons;
+        }
+
+        /// <summary>
+        /// Retourne tous les controles présent dans la base de données pour l'inscription passé en paramètre
+        /// </summary>
+        /// <param name="uneInscription">Objet inscription</param>
+        /// <returns>Collection de controle</returns>
+        public static List<Controler> GetLesControlesByInscription(Inscription uneInscription)
+        {
+            List<Controler> lesControles = new List<Controler>();
+
+            SqlCommand reqGetLesControlesByInscription = new SqlCommand("SELECT codeDop, numTriath, numDossard, mesureEtablie FROM Controler WHERE numTriath = @numT and numDossard = @numD;", connexionBaseTriathlon);
+
+            reqGetLesControlesByInscription.Parameters.AddWithValue("@numT", uneInscription.NumTriath);
+            reqGetLesControlesByInscription.Parameters.AddWithValue("@numD", uneInscription.NumDossard);
+
+            try
+            {
+                connexionBaseTriathlon.Open();
+                SqlDataReader readerLesControles = reqGetLesControlesByInscription.ExecuteReader();
+
+                while (readerLesControles.Read())
+                {
+                    int codeDop = (int)readerLesControles[0];
+                    int numTriath = (int)readerLesControles[1];
+                    int numDoss = (int)readerLesControles[2];
+                    double mesureE = (double)readerLesControles[3];
+
+                    lesControles.Add(new Controler(codeDop, numTriath, numDoss, mesureE));
+                }
+            }
+            finally
+            {
+                connexionBaseTriathlon.Close();
+            }
+
+            return lesControles;
+        }
+
+        /// <summary>
+        /// Retourne toutes les inscriptions présente dans la base de données pour le triathlon passé en paramètre
+        /// </summary>
+        /// <param name="unTriathlon">Objet triathlon</param>
+        /// <returns>Collection d'inscriptions</returns>
+        public static List<Inscription> GetLesInscriptionsByTriathlon(Triathlon unTriathlon)
+        {
+            List<Inscription> lesInscriptions = new List<Inscription>();
+
+            SqlCommand reqGetLesInscriptionsByTriathlon = new SqlCommand("SELECT numTriath, numDossard, dateInscription, tempsNatation, tempsCourse, tempsCyclisme, numLicence FROM Inscription WHERE numTriath = @num;", connexionBaseTriathlon);
+
+            reqGetLesInscriptionsByTriathlon.Parameters.AddWithValue("@num", unTriathlon.NumTriath);
+
+            try
+            {
+                connexionBaseTriathlon.Open();
+                SqlDataReader readerLesInscriptions = reqGetLesInscriptionsByTriathlon.ExecuteReader();
+
+                while (readerLesInscriptions.Read())
+                {
+                    int numTriath = (int)readerLesInscriptions[0];
+                    int numDossard = (int)readerLesInscriptions[1];
+                    DateTime dateI = (DateTime)readerLesInscriptions[2];
+                    double tempsNat = (double)readerLesInscriptions[3];
+                    double tempsCou = (double)readerLesInscriptions[4];
+                    double tempsCycl = (double)readerLesInscriptions[5];
+                    int numLicence = (int)readerLesInscriptions[6];
+
+                    lesInscriptions.Add(new Inscription(numTriath, numDossard, numLicence, dateI, tempsNat, tempsCou, tempsCycl));
+                }
+            }
+            finally
+            {
+                connexionBaseTriathlon.Close();
+            }
+
+            return lesInscriptions;
         }
 
         /// <summary>
         /// Ajoute un nouveau produit dopant dans la base de données avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="libelle">libelle du nouveau produit dopant</param>
-        /// <param name="tauxMax">taux max du nouveau produit dopant</param>
-        public static void AjouterProduitDop(string libelle, double tauxMax)
+        /// <param name="prodAAjouter">Objet produit dopant à ajouter</param>
+        public static void AjouterProduitDop(ProdDopant prodAAjouter)
         {
             SqlCommand reqAjouterProduitDop = new SqlCommand("INSERT INTO ProdDopant (libelle, tauxMax) VALUES (@libelle, @tauxMax);", connexionBaseTriathlon);
 
-            reqAjouterProduitDop.Parameters.AddWithValue("@libelle", libelle);
-            reqAjouterProduitDop.Parameters.AddWithValue("@tauxMax", tauxMax);
+            reqAjouterProduitDop.Parameters.AddWithValue("@libelle", prodAAjouter.Libelle);
+            reqAjouterProduitDop.Parameters.AddWithValue("@tauxMax", prodAAjouter.TauxMax);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -322,20 +394,16 @@ namespace Projet_Triathlon
         /// <summary>
         /// Ajoute un nouveau type de triathlon dans la base de données avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="designation">designation du nouveau type de triathlon</param>
-        /// <param name="nom">nom du nouveau type de triathlon</param>
-        /// <param name="distanceCyclisme">distance cyclisme du nouveau type de triathlon</param>
-        /// <param name="distanceNatation">distance natation du nouveau type de triathlon</param>
-        /// <param name="distanceCourse">distance course du nouveau type de triathlon</param>
-        public static void AjouterTypeTriathlon(string designation, string nom, int distanceCyclisme, int distanceNatation, int distanceCourse)
+        /// <param name="typeTriathlonAAjouter">Objet type triathlon à ajouter</param>
+        public static void AjouterTypeTriathlon(TypeTriathlon typeTriathlonAAjouter)
         {
             SqlCommand reqAjouterTypeTriathlon = new SqlCommand("INSERT INTO TypeTriathlon (designation, nom, distanceCyclisme, distanceNatation, distanceCourse) VALUES (@designation, @nom, @dCy, @dN, @dCo);", connexionBaseTriathlon);
 
-            reqAjouterTypeTriathlon.Parameters.AddWithValue("@designation", designation);
-            reqAjouterTypeTriathlon.Parameters.AddWithValue("@nom", nom);
-            reqAjouterTypeTriathlon.Parameters.AddWithValue("@idCy", distanceCyclisme);
-            reqAjouterTypeTriathlon.Parameters.AddWithValue("@idN", distanceNatation);
-            reqAjouterTypeTriathlon.Parameters.AddWithValue("@idCo", distanceCourse);
+            reqAjouterTypeTriathlon.Parameters.AddWithValue("@designation", typeTriathlonAAjouter.Designation);
+            reqAjouterTypeTriathlon.Parameters.AddWithValue("@nom", typeTriathlonAAjouter.Nom);
+            reqAjouterTypeTriathlon.Parameters.AddWithValue("@dCy", typeTriathlonAAjouter.DistanceCyclisme);
+            reqAjouterTypeTriathlon.Parameters.AddWithValue("@dN", typeTriathlonAAjouter.DistanceNatation);
+            reqAjouterTypeTriathlon.Parameters.AddWithValue("@dCo", typeTriathlonAAjouter.DistanceCourse);
 
             try
             {
@@ -351,22 +419,17 @@ namespace Projet_Triathlon
         /// <summary>
         /// Ajoute un nouveau triathlete dans la base de données avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="nom">nom du nouveau triathlete</param>
-        /// <param name="prenom">prenom du nouveau triathlete</param>
-        /// <param name="adresse">adresse du nouveau triathlete</param>
-        /// <param name="cp">code postale du nouveau triathlete</param>
-        /// <param name="ville">ville du nouveau triathlete</param>
-        /// <param name="dateNaissance">date de naissance du nouveau triathlete</param>
-        public static void AjouterTriathlete(string nom, string prenom, string adresse, int cp, string ville, DateTime dateNaissance)
+        /// <param name="triathleteAAjouter">Objet triathlete à ajouter</param>
+        public static void AjouterTriathlete(Triathlete triathleteAAjouter)
         {
             SqlCommand reqAjouterTriathlete = new SqlCommand("INSERT INTO Triathlete (nom, prenom, adresse, cp, ville, dateNaissance) VALUES (@nom, @prenom, @adresse, @cp, @ville, @dateN);", connexionBaseTriathlon);
 
-            reqAjouterTriathlete.Parameters.AddWithValue("@nom", nom);
-            reqAjouterTriathlete.Parameters.AddWithValue("@prenom", prenom);
-            reqAjouterTriathlete.Parameters.AddWithValue("@adresse", adresse);
-            reqAjouterTriathlete.Parameters.AddWithValue("@cp", cp);
-            reqAjouterTriathlete.Parameters.AddWithValue("@ville", ville);
-            reqAjouterTriathlete.Parameters.AddWithValue("@dateN", dateNaissance);
+            reqAjouterTriathlete.Parameters.AddWithValue("@nom", triathleteAAjouter.Nom);
+            reqAjouterTriathlete.Parameters.AddWithValue("@prenom", triathleteAAjouter.Prenom);
+            reqAjouterTriathlete.Parameters.AddWithValue("@adresse", triathleteAAjouter.Adresse);
+            reqAjouterTriathlete.Parameters.AddWithValue("@cp", triathleteAAjouter.Cp);
+            reqAjouterTriathlete.Parameters.AddWithValue("@ville", triathleteAAjouter.Ville);
+            reqAjouterTriathlete.Parameters.AddWithValue("@dateN", triathleteAAjouter.DateNaissance);
 
             try
             {
@@ -382,16 +445,14 @@ namespace Projet_Triathlon
         /// <summary>
         /// Ajoute une nouvelle inscription dans la base de données avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="numTriath">num triathlon de la nouvelle inscription</param>
-        /// <param name="numLicence">num licence de la nouvelle inscription</param>
-        /// <param name="dateInscription">date inscription de la nouvelle inscription</param>
-        public static void AjouterInscription(int numTriath, int numLicence, DateTime dateInscription)
+        /// <param name="inscriptionAAjouter">Objet inscription à ajouter</param>
+        public static void AjouterInscription(Inscription inscriptionAAjouter)
         {
             SqlCommand reqAjouterInscription = new SqlCommand("INSERT INTO Inscription (numTriath, numLicence, dateInscription) VALUES (@numT, @numL, @dateI);", connexionBaseTriathlon);
 
-            reqAjouterInscription.Parameters.AddWithValue("@numT", numTriath);
-            reqAjouterInscription.Parameters.AddWithValue("@numL", numLicence);
-            reqAjouterInscription.Parameters.AddWithValue("@dateI", dateInscription);
+            reqAjouterInscription.Parameters.AddWithValue("@numT", inscriptionAAjouter.NumTriath);
+            reqAjouterInscription.Parameters.AddWithValue("@numL", inscriptionAAjouter.NumLicence);
+            reqAjouterInscription.Parameters.AddWithValue("@dateI", inscriptionAAjouter.DateInscription);
 
             try
             {
@@ -407,18 +468,15 @@ namespace Projet_Triathlon
         /// <summary>
         /// Ajoute un nouveau triathlon dans la base de données avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="nom">nom triathlon du nouveau triathlon</param>
-        /// <param name="lieu">lieu du nouveau triathlon</param>
-        /// <param name="dateCompet">date competition du nouveau triathlon</param>
-        /// <param name="codeTypeT">code du type de triathlon du nouveau triathlon</param>
-        public static void AjouterTriathlon(string nom, string lieu, DateTime dateCompet, int codeTypeT)
+        /// <param name="triathlonAAjouter">param>
+        public static void AjouterTriathlon(Triathlon triathlonAAjouter)
         {
             SqlCommand reqAjouterTriathlon = new SqlCommand("INSERT INTO Triathlon (nom, lieu, dateCompet, codeTypeT) VALUES (@nom, @lieu, @dateC, @codeType);", connexionBaseTriathlon);
 
-            reqAjouterTriathlon.Parameters.AddWithValue("@nom", nom);
-            reqAjouterTriathlon.Parameters.AddWithValue("@lieu", lieu);
-            reqAjouterTriathlon.Parameters.AddWithValue("@dateC", dateCompet);
-            reqAjouterTriathlon.Parameters.AddWithValue("@codeType", codeTypeT);
+            reqAjouterTriathlon.Parameters.AddWithValue("@nom", triathlonAAjouter.Nom);
+            reqAjouterTriathlon.Parameters.AddWithValue("@lieu", triathlonAAjouter.Lieu);
+            reqAjouterTriathlon.Parameters.AddWithValue("@dateC", triathlonAAjouter.DateCompet);
+            reqAjouterTriathlon.Parameters.AddWithValue("@codeType", triathlonAAjouter.CodeTypeT);
 
             try
             {
@@ -434,18 +492,15 @@ namespace Projet_Triathlon
         /// <summary>
         /// Ajoute un nouveau controle dans la base de données avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="codeDop">code produit dopant du nouveau controle</param>
-        /// <param name="numTriath">num triathlon du nouveau controle</param>
-        /// <param name="numDossard">num dossard du nouveau controle</param>
-        /// <param name="mesureEtablie">mesure etablie du nouveau controle</param>
-        public static void AjouterControle(int codeDop, int numTriath, int numDossard, string mesureEtablie)
+        /// <param name="controleAAjouter">Objet controle à ajouter</param>
+        public static void AjouterControle(Controler controleAAjouter)
         {
             SqlCommand reqAjouterControle = new SqlCommand("INSERT INTO Controler (codeDop, numTriath, numDossard, mesureEtablie) VALUES (@codeD, @numT, @numD, @mesureE);", connexionBaseTriathlon);
 
-            reqAjouterControle.Parameters.AddWithValue("@codeD", codeDop);
-            reqAjouterControle.Parameters.AddWithValue("@numT", numTriath);
-            reqAjouterControle.Parameters.AddWithValue("@numD", numDossard);
-            reqAjouterControle.Parameters.AddWithValue("@mesureE", mesureEtablie);
+            reqAjouterControle.Parameters.AddWithValue("@codeD", controleAAjouter.CodeDop);
+            reqAjouterControle.Parameters.AddWithValue("@numT", controleAAjouter.NumTriath);
+            reqAjouterControle.Parameters.AddWithValue("@numD", controleAAjouter.NumDossard);
+            reqAjouterControle.Parameters.AddWithValue("@mesureE", controleAAjouter.MesureEtablie);
 
             try
             {
@@ -474,16 +529,14 @@ namespace Projet_Triathlon
         /// <summary>
         /// Modifie dans la base de données le produit dopant correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="codeDop">code du produit dopant à modifier</param>
-        /// <param name="libelle">nouveau libelle du produit dopant</param>
-        /// <param name="tauxMax">nouveau taux max du produit dopant</param>
-        public static void ModifierProduitsDop(int codeDop, string libelle, double tauxMax)
+        /// <param name="prodAModifier">Objet produit dopant à modifier</param>
+        public static void ModifierProduitsDop(ProdDopant prodAModifier)
         {
             SqlCommand reqModifierProduitsDop = new SqlCommand("UPDATE ProdDopant Set libelle = @libelle, tauxMax = @tauxMax WHERE codeDop = @code;", connexionBaseTriathlon);
 
-            reqModifierProduitsDop.Parameters.AddWithValue("@libelle", libelle);
-            reqModifierProduitsDop.Parameters.AddWithValue("@tauxMax", tauxMax);
-            reqModifierProduitsDop.Parameters.AddWithValue("@code", codeDop);
+            reqModifierProduitsDop.Parameters.AddWithValue("@libelle", prodAModifier.Libelle);
+            reqModifierProduitsDop.Parameters.AddWithValue("@tauxMax", prodAModifier.TauxMax);
+            reqModifierProduitsDop.Parameters.AddWithValue("@code", prodAModifier.CodeDop);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -498,22 +551,17 @@ namespace Projet_Triathlon
         /// <summary>
         /// Modifie dans la base de données le type de triathlon correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="codeType">code du type de triathlon à modifier</param>
-        /// <param name="designation">nouvelle designation du type de triathlon</param>
-        /// <param name="nom">nouveau nom du type de triathlon</param>
-        /// <param name="distanceCyclisme">nouvelle distance cyclisme du type de triathlon</param>
-        /// <param name="distanceNatation">nouvelle distance natation du type de triathlon</param>
-        /// <param name="DistanceCourse">nouvelle distance course du type de triathlon</param>
-        public static void ModifierTypeTriathlon(int codeType, string designation, string nom, int distanceCyclisme, int distanceNatation, int DistanceCourse)
+        /// <param name="typeTriathlonAModifier">Objet type triathlon à modifier</param>
+        public static void ModifierTypeTriathlon(TypeTriathlon typeTriathlonAModifier)
         {
             SqlCommand reqModifierTypeTriathlon = new SqlCommand("UPDATE TypeTriathlon Set designation = @desi, nom = @nom, distanceCyclisme = @dCy, distanceNatation = @dN, distanceCourse = @dCo WHERE codeTypeT = @code;", connexionBaseTriathlon);
 
-            reqModifierTypeTriathlon.Parameters.AddWithValue("@desi", designation);
-            reqModifierTypeTriathlon.Parameters.AddWithValue("@nom", nom);
-            reqModifierTypeTriathlon.Parameters.AddWithValue("@dCy", distanceCyclisme);
-            reqModifierTypeTriathlon.Parameters.AddWithValue("@dN", distanceNatation);
-            reqModifierTypeTriathlon.Parameters.AddWithValue("@dCo", DistanceCourse);
-            reqModifierTypeTriathlon.Parameters.AddWithValue("@code", codeType);
+            reqModifierTypeTriathlon.Parameters.AddWithValue("@desi", typeTriathlonAModifier.Designation);
+            reqModifierTypeTriathlon.Parameters.AddWithValue("@nom", typeTriathlonAModifier.Nom);
+            reqModifierTypeTriathlon.Parameters.AddWithValue("@dCy", typeTriathlonAModifier.DistanceCyclisme);
+            reqModifierTypeTriathlon.Parameters.AddWithValue("@dN", typeTriathlonAModifier.DistanceNatation);
+            reqModifierTypeTriathlon.Parameters.AddWithValue("@dCo", typeTriathlonAModifier.DistanceCourse);
+            reqModifierTypeTriathlon.Parameters.AddWithValue("@code", typeTriathlonAModifier.CodeTypeT);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -528,24 +576,18 @@ namespace Projet_Triathlon
         /// <summary>
         /// Modifie dans la base de données le triathlete correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="numLicence">num licence du triathlete à modifier</param>
-        /// <param name="nom">nouveau nom du triathlete</param>
-        /// <param name="prenom">nouveau prenom du triathlete</param>
-        /// <param name="adresse">nouvelle adresse du triathlete</param>
-        /// <param name="cp">nouveau code postale du triathlete</param>
-        /// <param name="ville">nouvelle ville du triathlete</param>
-        /// <param name="dateNaissance">nouvelle date de naissance du triathlete</param>
-        public static void ModifierTriathlete(int numLicence, string nom, string prenom, string adresse, int cp, string ville, DateTime dateNaissance)
+        /// <param name="triathleteAModifier">Objet triathlete à modifier</param>
+        public static void ModifierTriathlete(Triathlete triathleteAModifier)
         {
             SqlCommand reqModifierTriathlete = new SqlCommand("UPDATE Triathlete Set nom = @nom, prenom = @prenom, adresse = @adresse, cp = @cp, ville = @ville, dateNaissance = @dateN WHERE numLicence = @num;", connexionBaseTriathlon);
 
-            reqModifierTriathlete.Parameters.AddWithValue("@nom", nom);
-            reqModifierTriathlete.Parameters.AddWithValue("@prenom", prenom);
-            reqModifierTriathlete.Parameters.AddWithValue("@adresse", adresse);
-            reqModifierTriathlete.Parameters.AddWithValue("@cp", cp);
-            reqModifierTriathlete.Parameters.AddWithValue("@ville", ville);
-            reqModifierTriathlete.Parameters.AddWithValue("@dateN", dateNaissance);
-            reqModifierTriathlete.Parameters.AddWithValue("@num", numLicence);
+            reqModifierTriathlete.Parameters.AddWithValue("@nom", triathleteAModifier.Nom);
+            reqModifierTriathlete.Parameters.AddWithValue("@prenom", triathleteAModifier.Prenom);
+            reqModifierTriathlete.Parameters.AddWithValue("@adresse", triathleteAModifier.Adresse);
+            reqModifierTriathlete.Parameters.AddWithValue("@cp", triathleteAModifier.Cp);
+            reqModifierTriathlete.Parameters.AddWithValue("@ville", triathleteAModifier.Ville);
+            reqModifierTriathlete.Parameters.AddWithValue("@dateN", triathleteAModifier.DateNaissance);
+            reqModifierTriathlete.Parameters.AddWithValue("@num", triathleteAModifier.NumLicence);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -560,20 +602,16 @@ namespace Projet_Triathlon
         /// <summary>
         /// Modifie dans la base de données le triathlon correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="numTriath">num du triathlon à modifier</param>
-        /// <param name="nom">nouveau nom du triathlon</param>
-        /// <param name="lieu">nouveau lieu du triathlon</param>
-        /// <param name="dateCompet">nouvelle date de competition du triathlon</param>
-        /// <param name="codeType">nouveau code type de triathlon du triathlon</param>
-        public static void ModifierTriathlon(int numTriath, string nom, string lieu, DateTime dateCompet, int codeType)
+        /// <param name="triathlonAModifier">Objet triathlon à modifier</param>
+        public static void ModifierTriathlon(Triathlon triathlonAModifier)
         {
             SqlCommand reqModifierTriathlon = new SqlCommand("UPDATE Triathlon Set nom = @nom, lieu = @lieu, dateCompet = @dateC, codeTypeT = @codeType WHERE numTriath = @num;", connexionBaseTriathlon);
 
-            reqModifierTriathlon.Parameters.AddWithValue("@nom", nom);
-            reqModifierTriathlon.Parameters.AddWithValue("@lieu", lieu);
-            reqModifierTriathlon.Parameters.AddWithValue("@dateC", dateCompet);
-            reqModifierTriathlon.Parameters.AddWithValue("@codeType", codeType);
-            reqModifierTriathlon.Parameters.AddWithValue("@num", numTriath);
+            reqModifierTriathlon.Parameters.AddWithValue("@nom", triathlonAModifier.Nom);
+            reqModifierTriathlon.Parameters.AddWithValue("@lieu", triathlonAModifier.Lieu);
+            reqModifierTriathlon.Parameters.AddWithValue("@dateC", triathlonAModifier.DateCompet);
+            reqModifierTriathlon.Parameters.AddWithValue("@codeType", triathlonAModifier.CodeTypeT);
+            reqModifierTriathlon.Parameters.AddWithValue("@num", triathlonAModifier.NumTriath);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -588,20 +626,16 @@ namespace Projet_Triathlon
         /// <summary>
         /// Modifie dans la base de données le temps d'un triathlète correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="numTriath">num du triathlon de l'inscription à modifier</param>
-        /// <param name="numDossard">num du dossard de l'inscription à modifier</param>
-        /// <param name="tempsNatation">nouveau temps natation du triathlete inscrit</param>
-        /// <param name="tempsCourse">nouveau temps course du triathlete inscrit</param>
-        /// <param name="tempsCyclisme">nouveau temps cyclisme du triathlete inscrit</param>
-        public static void ModifierTemps(int numTriath, int numDossard, double tempsNatation, double tempsCourse, double tempsCyclisme)
+        /// <param name="inscriptionAModifier">Objet inscription à modifier</param>
+        public static void ModifierTemps(Inscription inscriptionAModifier)
         {
             SqlCommand reqModifierTemps = new SqlCommand("UPDATE Inscription Set tempsNatation = @tN, tempsCourse = @tCo, tempsCyclisme = @tCy WHERE numTriath = @numT and numDossard = @numD;", connexionBaseTriathlon);
 
-            reqModifierTemps.Parameters.AddWithValue("@tN", tempsNatation);
-            reqModifierTemps.Parameters.AddWithValue("@tCo", tempsCourse);
-            reqModifierTemps.Parameters.AddWithValue("@tCy", tempsCyclisme);
-            reqModifierTemps.Parameters.AddWithValue("@numD", numDossard);
-            reqModifierTemps.Parameters.AddWithValue("@numT", numTriath);
+            reqModifierTemps.Parameters.AddWithValue("@tN", inscriptionAModifier.TempsNatation);
+            reqModifierTemps.Parameters.AddWithValue("@tCo", inscriptionAModifier.TempsCourse);
+            reqModifierTemps.Parameters.AddWithValue("@tCy", inscriptionAModifier.TempsCyclisme);
+            reqModifierTemps.Parameters.AddWithValue("@numD", inscriptionAModifier.NumDossard);
+            reqModifierTemps.Parameters.AddWithValue("@numT", inscriptionAModifier.NumTriath);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -616,18 +650,15 @@ namespace Projet_Triathlon
         /// <summary>
         /// Modifie dans la base de données le controle correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
-        /// <param name="codeDop">code produit dopant du controle à modifier</param>
-        /// <param name="numTriath">num du triathlon du controle à modifier</param>
-        /// <param name="numDossard">num du dossard du controle à modifier</param>
-        /// <param name="mesureEtablie">nouvelle mesure etablie du controle</param>
-        public static void ModifierControle(int codeDop, int numTriath, int numDossard, double mesureEtablie)
+        /// <param name="controleAModifier">Objet controle à modifier</param>
+        public static void ModifierControle(Controler controleAModifier)
         {
             SqlCommand reqModifierControle = new SqlCommand("UPDATE Controler Set mesureEtablie = @mesureE WHERE numTriath = @numT and numDossard = @numD and codeDop = @codeD;", connexionBaseTriathlon);
 
-            reqModifierControle.Parameters.AddWithValue("@mesureE", mesureEtablie);
-            reqModifierControle.Parameters.AddWithValue("@codeD", codeDop);
-            reqModifierControle.Parameters.AddWithValue("@numD", numDossard);
-            reqModifierControle.Parameters.AddWithValue("@numT", numTriath);
+            reqModifierControle.Parameters.AddWithValue("@mesureE", controleAModifier.MesureEtablie);
+            reqModifierControle.Parameters.AddWithValue("@codeD", controleAModifier.CodeDop);
+            reqModifierControle.Parameters.AddWithValue("@numD", controleAModifier.NumDossard);
+            reqModifierControle.Parameters.AddWithValue("@numT", controleAModifier.NumTriath);
             try
             {
                 connexionBaseTriathlon.Open();
@@ -645,13 +676,13 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données le produit dopant avec le code passé en paramètre ainsi que ses controles
         /// </summary>
-        /// <param name="codeDop">code du produit dopant à supprimer</param>
-        public static void SupprimerProduitDop(int codeDop)
+        /// <param name="prodASupprimer">Objet produit dopant à supprimer</param>
+        public static void SupprimerProduitDop(ProdDopant prodASupprimer)
         {
             SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controler WHERE codeDop = @codeD", connexionBaseTriathlon);
-            reqSupprimerControle.Parameters.AddWithValue("@codeD", codeDop);
+            reqSupprimerControle.Parameters.AddWithValue("@codeD", prodASupprimer.CodeDop);
             SqlCommand reqSupprimerProduitDop = new SqlCommand("DELETE FROM ProdDopant WHERE codeDop = @codeD", connexionBaseTriathlon);
-            reqSupprimerProduitDop.Parameters.AddWithValue("@codeD", codeDop);
+            reqSupprimerProduitDop.Parameters.AddWithValue("@codeD", prodASupprimer.CodeDop);
 
             try
             {
@@ -668,11 +699,11 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données le triathlon avec le num passé en paramètre
         /// </summary>
-        /// <param name="numTriath">num du triathlon à supprimer</param>
-        public static void SupprimerTriathlon(int numTriath)
+        /// <param name="triathlonASupprimer">Objet triathlon à supprimer</param>
+        public static void SupprimerTriathlon(Triathlon triathlonASupprimer)
         {
             SqlCommand reqSupprimerTriathlon = new SqlCommand("DELETE FROM Triathlon WHERE numTriath = @numTriath", connexionBaseTriathlon);
-            reqSupprimerTriathlon.Parameters.AddWithValue("@numTriath", numTriath);
+            reqSupprimerTriathlon.Parameters.AddWithValue("@numTriath", triathlonASupprimer.NumTriath);
 
             try
             {
@@ -688,13 +719,13 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données le type de triathlon avec le code passé en paramètre ainsi que ses triathlons
         /// </summary>
-        /// <param name="codeType">code du type de triathlon à supprimer</param>
-        public static void SupprimerTypeTriahtlon(int codeType)///marche pas
+        /// <param name="typeTriathlonASupprimer">Objet type triathlon à supprimer</param>
+        public static void SupprimerTypeTriahtlon(TypeTriathlon typeTriathlonASupprimer)///marche pas
         {
             SqlCommand reqSupprimerTriathlon = new SqlCommand("DELETE FROM Triathlon WHERE codeTypeT = @codeT", connexionBaseTriathlon);
-            reqSupprimerTriathlon.Parameters.AddWithValue("@codeT", codeType);
+            reqSupprimerTriathlon.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
             SqlCommand reqSupprimerTypeTriathlon = new SqlCommand("DELETE FROM TypeTriathlon WHERE codeTypeT = @codeT", connexionBaseTriathlon);
-            reqSupprimerTypeTriathlon.Parameters.AddWithValue("@codeT", codeType);
+            reqSupprimerTypeTriathlon.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
 
             try
             {
@@ -711,13 +742,13 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données le triathlete avec le num licence passé en paramètre ainsi que ses inscriptions
         /// </summary>
-        /// <param name="numLicence">num licence du triathlete à supprimer</param>
-        public static void SupprimerTriathlete(int numLicence)
+        /// <param name="triathleteASupprimer">Objet triathlete à supprimer</param>
+        public static void SupprimerTriathlete(Triathlete triathleteASupprimer)
         {
             SqlCommand reqSupprimerInscription = new SqlCommand("DELETE FROM Inscription WHERE numLicence = @numL", connexionBaseTriathlon);
-            reqSupprimerInscription.Parameters.AddWithValue("@numL", numLicence);
+            reqSupprimerInscription.Parameters.AddWithValue("@numL", triathleteASupprimer.NumLicence);
             SqlCommand reqSupprimerTriathlete = new SqlCommand("DELETE FROM Triathlete WHERE numLicence = @numL", connexionBaseTriathlon);
-            reqSupprimerTriathlete.Parameters.AddWithValue("@numL", numLicence);
+            reqSupprimerTriathlete.Parameters.AddWithValue("@numL", triathleteASupprimer.NumLicence);
 
             try
             {
@@ -734,15 +765,13 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données le controle avec le code du produit dopant, du num triathlon et du num dossaes passé en paramètre
         /// </summary>
-        /// <param name="codeDop">code du produit dopant du controle à supprimer</param>
-        /// <param name="numTriath">num triathlon du controle à supprimer</param>
-        /// <param name="numDossard">num dossard du controle à supprimer</param>
-        public static void SupprimerControle(int codeDop, int numTriath, int numDossard)
+        /// <param name="controleASupprimer">Objet controle à supprimer</param>
+        public static void SupprimerControle(Controler controleASupprimer)
         {
             SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controle WHERE codeDop = @codeD and numTriath = @numT and numDossard = @numD", connexionBaseTriathlon);
-            reqSupprimerControle.Parameters.AddWithValue("@codeD", codeDop);
-            reqSupprimerControle.Parameters.AddWithValue("@numT", numTriath);
-            reqSupprimerControle.Parameters.AddWithValue("@numD", numDossard);
+            reqSupprimerControle.Parameters.AddWithValue("@codeD", controleASupprimer.CodeDop);
+            reqSupprimerControle.Parameters.AddWithValue("@numT", controleASupprimer.NumTriath);
+            reqSupprimerControle.Parameters.AddWithValue("@numD", controleASupprimer.NumDossard);
 
             try
             {
@@ -758,13 +787,12 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données l'inscription avec le num du triathlon et le num du dossard passé en paramètre
         /// </summary>
-        /// <param name="numTriath">num triathlon de l'inscription à supprimer</param>
-        /// <param name="numDossard">num dossard de l'inscription à supprimer</param>
-        public static void SupprimerInscription(int numTriath, int numDossard)
+        /// <param name="inscriptionASupprimer">Objet inscription à supprimer</param>
+        public static void SupprimerInscription(Inscription inscriptionASupprimer)
         {
             SqlCommand reqSupprimerInscription = new SqlCommand("DELETE FROM Inscription WHERE numTriath = @numT and numDossard = @numD", connexionBaseTriathlon);
-            reqSupprimerInscription.Parameters.AddWithValue("@numT", numTriath);
-            reqSupprimerInscription.Parameters.AddWithValue("@numD", numDossard);
+            reqSupprimerInscription.Parameters.AddWithValue("@numT", inscriptionASupprimer.NumTriath);
+            reqSupprimerInscription.Parameters.AddWithValue("@numD", inscriptionASupprimer.NumDossard);
 
             try
             {
@@ -781,14 +809,13 @@ namespace Projet_Triathlon
         /// <summary>
         /// Supprime dans la base de données le temps (en le mettant à 0) avec le num dossard et le num triathlon passé en paramètre
         /// </summary>
-        /// <param name="numDossard">num dossard du temps à supprimer</param>
-        /// <param name="numTriath">num triathlon du temps à supprimer</param>
-        public static void SupprimerTemps(int numDossard, int numTriath)
+        /// <param name="inscriptionASupprimer">Objet inscription à supprimer</param>
+        public static void SupprimerTemps(Inscription inscriptionASupprimer)
         {
             SqlCommand reqSupprimerTemps = new SqlCommand("UPDATE Inscription Set tempsNatation = 0, tempsCourse = 0, tempsCyclisme = 0 WHERE numTriath = @numT and numDossard = @numD;", connexionBaseTriathlon);
 
-            reqSupprimerTemps.Parameters.AddWithValue("@numD", numDossard);
-            reqSupprimerTemps.Parameters.AddWithValue("@numT", numTriath);
+            reqSupprimerTemps.Parameters.AddWithValue("@numD", inscriptionASupprimer.NumDossard);
+            reqSupprimerTemps.Parameters.AddWithValue("@numT", inscriptionASupprimer.NumTriath);
             try
             {
                 connexionBaseTriathlon.Open();

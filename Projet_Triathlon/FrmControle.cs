@@ -16,5 +16,18 @@ namespace Projet_Triathlon
         {
             InitializeComponent();
         }
+
+        private void FrmControle_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //On charge la comboBox avec tous les produits de la base de données au chargement du formulaire
+                bindSrcControler.DataSource = ClassePasserelle.GetLesControles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

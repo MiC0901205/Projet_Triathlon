@@ -17,5 +17,42 @@ namespace Projet_Triathlon
             InitializeComponent();
         }
 
+        private void FrmTriathlon_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                bindSrcTypeTriathlon.DataSource = ClassePasserelle.GetLesTypesTriathlon();
+                bindSrcTriathlon.DataSource = ClassePasserelle.GetLesTriathlons();
+                bindSrcInscription.DataSource = ClassePasserelle.GetLesInscriptionsByTriathlon((Triathlon)bindSrcTriathlon.Current);
+
+
+                foreach (Triathlon unT in this.bindSrcTriathlon)
+                {
+                    int i = 0;
+                    while (((TypeTriathlon)this.bindSrcTypeTriathlon[i]).CodeTypeT != unT.CodeTypeT)
+                    {
+                        i++;
+                    }
+                    unT.UnTypeTriathlon = (TypeTriathlon)this.bindSrcTypeTriathlon[i];
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void bindSrcTriathlon_CurrentChanged(object sender, EventArgs e)
+        {
+            bindSrcInscription.DataSource = ClassePasserelle.GetLesInscriptionsByTriathlon((Triathlon)bindSrcTriathlon.Current);
+        }
+
+        private void gridInscriptions_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FrmControle frmC  = new FrmControle();
+            frmC.ShowDialog();
+        }
     }
 }

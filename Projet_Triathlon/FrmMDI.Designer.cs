@@ -52,20 +52,20 @@
             this.ajoutProdMenuItem,
             this.gérerProdDopantToolStripMenuItem});
             this.menuItemProdDopant.Name = "menuItemProdDopant";
-            this.menuItemProdDopant.Size = new System.Drawing.Size(104, 24);
+            this.menuItemProdDopant.Size = new System.Drawing.Size(83, 20);
             this.menuItemProdDopant.Text = "ProdDopant";
             // 
             // ajoutProdMenuItem
             // 
             this.ajoutProdMenuItem.Name = "ajoutProdMenuItem";
-            this.ajoutProdMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.ajoutProdMenuItem.Size = new System.Drawing.Size(131, 22);
             this.ajoutProdMenuItem.Text = "Nouveau...";
             this.ajoutProdMenuItem.Click += new System.EventHandler(this.ajoutProdMenuItem_Click);
             // 
             // gérerProdDopantToolStripMenuItem
             // 
             this.gérerProdDopantToolStripMenuItem.Name = "gérerProdDopantToolStripMenuItem";
-            this.gérerProdDopantToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.gérerProdDopantToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.gérerProdDopantToolStripMenuItem.Text = "Gérer";
             this.gérerProdDopantToolStripMenuItem.Click += new System.EventHandler(this.gérerProdDopantProdMenuItem_Click);
             // 
@@ -75,20 +75,20 @@
             this.ajoutTypeTriathlonsMenuItem,
             this.gérerTypeTriathlonToolStripMenuItem});
             this.menuItemTypesTriathlons.Name = "menuItemTypesTriathlons";
-            this.menuItemTypesTriathlons.Size = new System.Drawing.Size(147, 24);
+            this.menuItemTypesTriathlons.Size = new System.Drawing.Size(117, 20);
             this.menuItemTypesTriathlons.Text = "Types de triathlons";
             // 
             // ajoutTypeTriathlonsMenuItem
             // 
             this.ajoutTypeTriathlonsMenuItem.Name = "ajoutTypeTriathlonsMenuItem";
-            this.ajoutTypeTriathlonsMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.ajoutTypeTriathlonsMenuItem.Size = new System.Drawing.Size(131, 22);
             this.ajoutTypeTriathlonsMenuItem.Text = "Nouveau...";
             this.ajoutTypeTriathlonsMenuItem.Click += new System.EventHandler(this.ajoutTypeTriathlonsMenuItem_Click);
             // 
             // gérerTypeTriathlonToolStripMenuItem
             // 
             this.gérerTypeTriathlonToolStripMenuItem.Name = "gérerTypeTriathlonToolStripMenuItem";
-            this.gérerTypeTriathlonToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.gérerTypeTriathlonToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.gérerTypeTriathlonToolStripMenuItem.Text = "Gérer";
             this.gérerTypeTriathlonToolStripMenuItem.Click += new System.EventHandler(this.gérerTypeTriathlonToolStripMenuItem_Click);
             // 
@@ -98,20 +98,20 @@
             this.ajoutTriathletesMenuItem,
             this.gérerTriathletesMenuItem});
             this.menuItemTriathletes.Name = "menuItemTriathletes";
-            this.menuItemTriathletes.Size = new System.Drawing.Size(91, 24);
+            this.menuItemTriathletes.Size = new System.Drawing.Size(72, 20);
             this.menuItemTriathletes.Text = "Triathlètes";
             // 
             // ajoutTriathletesMenuItem
             // 
             this.ajoutTriathletesMenuItem.Name = "ajoutTriathletesMenuItem";
-            this.ajoutTriathletesMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.ajoutTriathletesMenuItem.Size = new System.Drawing.Size(131, 22);
             this.ajoutTriathletesMenuItem.Text = "Nouveau...";
             this.ajoutTriathletesMenuItem.Click += new System.EventHandler(this.ajoutTriathletesMenuItem_Click);
             // 
             // gérerTriathletesMenuItem
             // 
             this.gérerTriathletesMenuItem.Name = "gérerTriathletesMenuItem";
-            this.gérerTriathletesMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.gérerTriathletesMenuItem.Size = new System.Drawing.Size(131, 22);
             this.gérerTriathletesMenuItem.Text = "Gérer";
             this.gérerTriathletesMenuItem.Click += new System.EventHandler(this.gérerTriathletesMenuItem_Click);
             // 
@@ -122,34 +122,34 @@
             this.gérerTriathlonsMenuItem,
             this.classementMenuItem});
             this.menuItemTriathlon.Name = "menuItemTriathlon";
-            this.menuItemTriathlon.Size = new System.Drawing.Size(87, 24);
+            this.menuItemTriathlon.Size = new System.Drawing.Size(70, 20);
             this.menuItemTriathlon.Text = "Triathlons";
             // 
             // ajoutTriathlonsMenuItem
             // 
             this.ajoutTriathlonsMenuItem.Name = "ajoutTriathlonsMenuItem";
-            this.ajoutTriathlonsMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ajoutTriathlonsMenuItem.Size = new System.Drawing.Size(135, 22);
             this.ajoutTriathlonsMenuItem.Text = "Nouveau...";
             this.ajoutTriathlonsMenuItem.Click += new System.EventHandler(this.ajoutTriathlonsMenuItem_Click);
             // 
             // gérerTriathlonsMenuItem
             // 
             this.gérerTriathlonsMenuItem.Name = "gérerTriathlonsMenuItem";
-            this.gérerTriathlonsMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gérerTriathlonsMenuItem.Size = new System.Drawing.Size(135, 22);
             this.gérerTriathlonsMenuItem.Text = "Gérer ";
             this.gérerTriathlonsMenuItem.Click += new System.EventHandler(this.gérerTriathlonsMenuItem_Click);
             // 
             // classementMenuItem
             // 
             this.classementMenuItem.Name = "classementMenuItem";
-            this.classementMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.classementMenuItem.Size = new System.Drawing.Size(135, 22);
             this.classementMenuItem.Text = "Classement";
             this.classementMenuItem.Click += new System.EventHandler(this.classementMenuItem_Click);
             // 
             // menuItemQUITTER
             // 
             this.menuItemQUITTER.Name = "menuItemQUITTER";
-            this.menuItemQUITTER.Size = new System.Drawing.Size(81, 24);
+            this.menuItemQUITTER.Size = new System.Drawing.Size(64, 20);
             this.menuItemQUITTER.Text = "QUITTER";
             this.menuItemQUITTER.Click += new System.EventHandler(this.menuItemQUITTER_Click);
             // 
@@ -164,19 +164,18 @@
             this.menuItemQUITTER});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(800, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
             // FrmMDI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMDI";
             this.Text = "Projet - Gestion des triathlons";
             this.menuStrip.ResumeLayout(false);

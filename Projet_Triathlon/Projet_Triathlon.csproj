@@ -177,6 +177,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Controler.datasource" />
+    <None Include="Properties\DataSources\Inscription.datasource" />
     <None Include="Properties\DataSources\ProdDopant.datasource" />
     <None Include="Properties\DataSources\Triathlete.datasource" />
     <None Include="Properties\DataSources\Triathlon.datasource" />

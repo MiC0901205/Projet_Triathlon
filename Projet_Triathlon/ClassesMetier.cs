@@ -70,6 +70,7 @@ namespace Projet_Triathlon
         private DateTime dateCompet;
         private int numTriath;
         private string nom;
+        private TypeTriathlon unTypeTriathlon;
 
         public Triathlon(int unNumTriath, string unNom, string unLieu, DateTime uneDateCompet, int unCodeTypeT)
         {
@@ -85,6 +86,7 @@ namespace Projet_Triathlon
         public string Nom { get => nom; set => nom = value; }
         public string Lieu { get => lieu; set => lieu = value; }
         public DateTime DateCompet { get => dateCompet; set => dateCompet = value; }
+        public TypeTriathlon UnTypeTriathlon { get => unTypeTriathlon; set => unTypeTriathlon = value; }
 
         public override string ToString()
         {
@@ -155,24 +157,24 @@ namespace Projet_Triathlon
 
     public class ProdDopant
     {
-        private int codDop;
+        private int codeDop;
         private string libelle;
         private double tauxMax;
 
-        public int CodDop { get => codDop; set => codDop = value; }
+        public int CodeDop { get => codeDop; set => codeDop = value; }
         public string Libelle { get => libelle; set => libelle = value; }
         public double TauxMax { get => tauxMax; set => tauxMax = value; }
 
         public ProdDopant(int unCodeDop,string unLibelle, double unTauxMax)
         {
-            this.CodDop = unCodeDop;
+            this.codeDop = unCodeDop;
             this.Libelle = unLibelle;
             this.TauxMax = unTauxMax;
         }
 
         public override string ToString()
         {
-            return this.CodDop + ". " + this.Libelle;
+            return this.codeDop + ". " + this.Libelle;
         }
     }
 
