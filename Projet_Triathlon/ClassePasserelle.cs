@@ -12,7 +12,7 @@ namespace Projet_Triathlon
 {
     public static class ClassePasserelle
     {
-        private static SqlConnection connexionBaseTriathlon = new SqlConnection("Data Source=DESKTOP-J6GFBAV; Initial Catalog=TriathlonDB; user Id=EntityTriathlon; password=21Sl@mM€rm0z23");
+        private static SqlConnection connexionBaseTriathlon = new SqlConnection("Data Source=LAPTOP-AT6B1DPN; Initial Catalog=TriathlonDB; user Id=EntityTriathlon; password=21Sl@mM€rm0z23");
 
         /// <summary>
         /// Retourne tous les types de triathlon présent dans la base de données

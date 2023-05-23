@@ -35,6 +35,9 @@
             this.tabControlProdDopant = new System.Windows.Forms.TabControl();
             this.tabPageListe = new System.Windows.Forms.TabPage();
             this.prodDopantDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindSrcProdDopant = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageDetail = new System.Windows.Forms.TabPage();
             this.codeDopTextBox = new System.Windows.Forms.TextBox();
             this.libelleTextBox = new System.Windows.Forms.TextBox();
@@ -44,18 +47,14 @@
             this.btEnregistrer = new System.Windows.Forms.Button();
             this.btSupprimer = new System.Windows.Forms.Button();
             this.btAjouter = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindSrcProdDopant = new System.Windows.Forms.BindingSource(this.components);
             codeDopLabel = new System.Windows.Forms.Label();
             libelleLabel = new System.Windows.Forms.Label();
             tauxMaxLabel = new System.Windows.Forms.Label();
             this.tabControlProdDopant.SuspendLayout();
             this.tabPageListe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodDopantDataGridView)).BeginInit();
-            this.tabPageDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindSrcProdDopant)).BeginInit();
+            this.tabPageDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // codeDopLabel
@@ -117,7 +116,6 @@
             this.prodDopantDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.prodDopantDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prodDopantDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.prodDopantDataGridView.DataSource = this.bindSrcProdDopant;
@@ -130,6 +128,28 @@
             this.prodDopantDataGridView.Size = new System.Drawing.Size(1047, 435);
             this.prodDopantDataGridView.TabIndex = 0;
             this.prodDopantDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodDopantDataGridView_CellContentDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Libelle";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Libelle";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 76;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TauxMax";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TauxMax";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 91;
+            // 
+            // bindSrcProdDopant
+            // 
+            this.bindSrcProdDopant.DataSource = typeof(Projet_Triathlon.ProdDopant);
             // 
             // tabPageDetail
             // 
@@ -188,7 +208,7 @@
             // 
             // btAnnuler
             // 
-            this.btAnnuler.Location = new System.Drawing.Point(370, 310);
+            this.btAnnuler.Location = new System.Drawing.Point(387, 310);
             this.btAnnuler.Margin = new System.Windows.Forms.Padding(4);
             this.btAnnuler.Name = "btAnnuler";
             this.btAnnuler.Size = new System.Drawing.Size(100, 28);
@@ -206,6 +226,7 @@
             this.btEnregistrer.TabIndex = 16;
             this.btEnregistrer.Text = "Enregistrer";
             this.btEnregistrer.UseVisualStyleBackColor = false;
+            this.btEnregistrer.Click += new System.EventHandler(this.btEnregistrer_Click);
             // 
             // btSupprimer
             // 
@@ -228,37 +249,7 @@
             this.btAjouter.TabIndex = 4;
             this.btAjouter.Text = "Ajouter un nouveau produit";
             this.btAjouter.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CodeDop";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CodeDop";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 95;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Libelle";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Libelle";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 76;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TauxMax";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TauxMax";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 91;
-            // 
-            // bindSrcProdDopant
-            // 
-            this.bindSrcProdDopant.DataSource = typeof(Projet_Triathlon.ProdDopant);
+            this.btAjouter.Click += new System.EventHandler(this.btAjouter_Click);
             // 
             // FrmProdDopant
             // 
@@ -274,9 +265,9 @@
             this.tabControlProdDopant.ResumeLayout(false);
             this.tabPageListe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.prodDopantDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcProdDopant)).EndInit();
             this.tabPageDetail.ResumeLayout(false);
             this.tabPageDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcProdDopant)).EndInit();
             this.ResumeLayout(false);
 
         }

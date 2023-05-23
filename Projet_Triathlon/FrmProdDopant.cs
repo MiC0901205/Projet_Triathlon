@@ -34,5 +34,26 @@ namespace Projet_Triathlon
         {
             tabControlProdDopant.SelectedIndex = 1;
         }
+
+        private void btAjouter_Click(object sender, EventArgs e)
+        {
+            FrmAjoutProdDopant form = new FrmAjoutProdDopant();
+            form.ShowDialog(); // Utilisez Show() au lieu de ShowDialog() si vous souhaitez autoriser l'utilisateur à interagir avec d'autres fenêtres simultanément
+        }
+
+        private void btEnregistrer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bindSrcProdDopant.EndEdit();
+                ClassePasserelle.ModifierProduitsDop((ProdDopant)bindSrcProdDopant.Current);
+
+                MessageBox.Show("La modification a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            }
     }
 }
