@@ -21,12 +21,11 @@ namespace Projet_Triathlon
         {
             try
             {
+                List<Triathlon> lesTriath = ClassePasserelle.GetLesTriathlons();
                 bindSrcTypeTriathlon.DataSource = ClassePasserelle.GetLesTypesTriathlon();
-                bindSrcTriathlon.DataSource = ClassePasserelle.GetLesTriathlons();
-                bindSrcInscription.DataSource = ClassePasserelle.GetLesInscriptionsByTriathlon((Triathlon)bindSrcTriathlon.Current);
 
 
-                foreach (Triathlon unT in this.bindSrcTriathlon)
+                foreach (Triathlon unT in lesTriath)
                 {
                     int i = 0;
                     while (((TypeTriathlon)this.bindSrcTypeTriathlon[i]).CodeTypeT != unT.CodeTypeT)
@@ -36,23 +35,86 @@ namespace Projet_Triathlon
                     unT.UnTypeTriathlon = (TypeTriathlon)this.bindSrcTypeTriathlon[i];
 
                 }
+
+                bindSrcTriathlon.DataSource = lesTriath;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
         }
 
         private void bindSrcTriathlon_CurrentChanged(object sender, EventArgs e)
         {
             bindSrcInscription.DataSource = ClassePasserelle.GetLesInscriptionsByTriathlon((Triathlon)bindSrcTriathlon.Current);
+            //bindSrcTriathlon.CancelEdit();
         }
 
         private void gridInscriptions_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FrmControle frmC  = new FrmControle();
             frmC.ShowDialog();
+        }
+
+        private void btNouveauTriathlon_Click(object sender, EventArgs e)
+        {
+            FrmAjoutTriathlon frmNewT = new FrmAjoutTriathlon();
+            frmNewT.ShowDialog();
+        }
+
+        private void btModifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bindSrcTriathlon.EndEdit();
+                ClassePasserelle.ModifierTriathlon((Triathlon)bindSrcTriathlon.Current);
+
+                MessageBox.Show("La modification a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btSupprimerTriathlon_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous réellement supprimer ce triathlon ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                try
+                {
+                    ClassePasserelle.SupprimerTriathlon((Triathlon)bindSrcTriathlon.Current);
+                    bindSrcTriathlon.RemoveCurrent();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btNouvelleInscription_Click(object sender, EventArgs e)
+        {
+            FrmAjoutInscription frmNewI = new FrmAjoutInscription();
+            frmNewI.ShowDialog();
+        }
+
+        private void btSupprimerInscription_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous réellement supprimer cette inscription ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                try
+                {
+                    ClassePasserelle.SupprimerInscription((Inscription)bindSrcInscription.Current);
+                    bindSrcInscription.RemoveCurrent();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

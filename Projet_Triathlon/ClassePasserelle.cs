@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
-using System.Web;
 
 namespace Projet_Triathlon
 {
@@ -218,18 +212,17 @@ namespace Projet_Triathlon
             return lesControles;
         }
 
-        /// à tester
         /// <summary>
         /// Retourne le classement du triathlon passé en paramètre
         /// </summary>
-        /// <param name="numTriath">Identifiant du triathlon pour lequel on souhaite obtenir le classement des triathletes</param>
-        /// <returns>Collection de triathletes</returns>
-        public static List<Triathlete> GetClassementTriathlete(int numTriath)
+        /// <param name="unTriath">Objet type triathlon</param>
+        /// <returns>Collection d'inscription</returns>
+        public static List<Inscription> GetClassement(Triathlon unTriath)
         {
-            List<Triathlete> lesTriathletes = new List<Triathlete>();
+            List<Inscription> lesTriathletes = new List<Inscription>();
 
             SqlCommand reqGetLeClassement = new SqlCommand("EXEC GetClassementByTriathlon @numT;", connexionBaseTriathlon);
-            reqGetLeClassement.Parameters.AddWithValue("@numT", numTriath);
+            reqGetLeClassement.Parameters.AddWithValue("@numT", unTriath.NumTriath);
 
             try
             {
@@ -239,15 +232,16 @@ namespace Projet_Triathlon
                 while (readerLesTriathletes.Read())
                 {
                     int numLicence = (int)readerLesTriathletes[0];
-                    int numDossard = (int)readerLesTriathletes[1];
-                    string nom = readerLesTriathletes[2].ToString();
-                    string prenom = readerLesTriathletes[3].ToString();
-                    double tempsCourse = (double)readerLesTriathletes[4];
-                    double tempsCyclisme = (double)readerLesTriathletes[5];
-                    double tempsNatation = (double)readerLesTriathletes[6];
-                    double tempsTotal = (double)readerLesTriathletes[7];
+                    int numTriath = (int)readerLesTriathletes[1];
+                    int numDossard = (int)readerLesTriathletes[2];
+                    string nom = readerLesTriathletes[3].ToString();
+                    string prenom = readerLesTriathletes[4].ToString();
+                    double tempsCourse = (double)readerLesTriathletes[5];
+                    double tempsCyclisme = (double)readerLesTriathletes[6];
+                    double tempsNatation = (double)readerLesTriathletes[7];
+                    double tempsTotal = (double)readerLesTriathletes[8];
 
-                    lesTriathletes.Add(new Triathlete(numLicence, numDossard, nom, prenom, tempsCourse, tempsCyclisme, tempsNatation, tempsTotal));
+                    lesTriathletes.Add(new Inscription(numTriath, numDossard, numLicence, nom, prenom, tempsNatation, tempsCourse, tempsCyclisme, tempsTotal));
                 }
             }
             finally
@@ -610,7 +604,7 @@ namespace Projet_Triathlon
             reqModifierTriathlon.Parameters.AddWithValue("@nom", triathlonAModifier.Nom);
             reqModifierTriathlon.Parameters.AddWithValue("@lieu", triathlonAModifier.Lieu);
             reqModifierTriathlon.Parameters.AddWithValue("@dateC", triathlonAModifier.DateCompet);
-            reqModifierTriathlon.Parameters.AddWithValue("@codeType", triathlonAModifier.CodeTypeT);
+            reqModifierTriathlon.Parameters.AddWithValue("@codeType", triathlonAModifier.UnTypeTriathlon.CodeTypeT);
             reqModifierTriathlon.Parameters.AddWithValue("@num", triathlonAModifier.NumTriath);
             try
             {
@@ -702,12 +696,18 @@ namespace Projet_Triathlon
         /// <param name="triathlonASupprimer">Objet triathlon à supprimer</param>
         public static void SupprimerTriathlon(Triathlon triathlonASupprimer)
         {
+            SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controler WHERE numTriath = @numTriath", connexionBaseTriathlon);
+            reqSupprimerControle.Parameters.AddWithValue("@numTriath", triathlonASupprimer.NumTriath);
+            SqlCommand reqSupprimerInscription = new SqlCommand("DELETE FROM Inscription WHERE numTriath = @numTriath", connexionBaseTriathlon);
+            reqSupprimerInscription.Parameters.AddWithValue("@numTriath", triathlonASupprimer.NumTriath);
             SqlCommand reqSupprimerTriathlon = new SqlCommand("DELETE FROM Triathlon WHERE numTriath = @numTriath", connexionBaseTriathlon);
             reqSupprimerTriathlon.Parameters.AddWithValue("@numTriath", triathlonASupprimer.NumTriath);
 
             try
             {
                 connexionBaseTriathlon.Open();
+                reqSupprimerControle.ExecuteNonQuery();
+                reqSupprimerInscription.ExecuteNonQuery();
                 reqSupprimerTriathlon.ExecuteNonQuery();
             }
             finally
@@ -722,6 +722,10 @@ namespace Projet_Triathlon
         /// <param name="typeTriathlonASupprimer">Objet type triathlon à supprimer</param>
         public static void SupprimerTypeTriahtlon(TypeTriathlon typeTriathlonASupprimer)///marche pas
         {
+            SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controler C JOIN Triathlon T ON T.numTriath = C.numTriath WHERE codeTypeT = @codeT", connexionBaseTriathlon);
+            reqSupprimerControle.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
+            SqlCommand reqSupprimerInscription = new SqlCommand("DELETE FROM Inscription I JOIN Triathlon T ON T.numTriath = I.numTriath WHERE codeTypeT = @codeT", connexionBaseTriathlon);
+            reqSupprimerInscription.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
             SqlCommand reqSupprimerTriathlon = new SqlCommand("DELETE FROM Triathlon WHERE codeTypeT = @codeT", connexionBaseTriathlon);
             reqSupprimerTriathlon.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
             SqlCommand reqSupprimerTypeTriathlon = new SqlCommand("DELETE FROM TypeTriathlon WHERE codeTypeT = @codeT", connexionBaseTriathlon);
@@ -730,6 +734,8 @@ namespace Projet_Triathlon
             try
             {
                 connexionBaseTriathlon.Open();
+                reqSupprimerControle.ExecuteNonQuery();
+                reqSupprimerInscription.ExecuteNonQuery();
                 reqSupprimerTriathlon.ExecuteNonQuery();
                 reqSupprimerTypeTriathlon.ExecuteNonQuery();
             }
@@ -790,6 +796,9 @@ namespace Projet_Triathlon
         /// <param name="inscriptionASupprimer">Objet inscription à supprimer</param>
         public static void SupprimerInscription(Inscription inscriptionASupprimer)
         {
+            SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controler WHERE numTriath = @numT and numDossard = @numD", connexionBaseTriathlon);
+            reqSupprimerControle.Parameters.AddWithValue("@numT", inscriptionASupprimer.NumTriath);
+            reqSupprimerControle.Parameters.AddWithValue("@numD", inscriptionASupprimer.NumDossard);
             SqlCommand reqSupprimerInscription = new SqlCommand("DELETE FROM Inscription WHERE numTriath = @numT and numDossard = @numD", connexionBaseTriathlon);
             reqSupprimerInscription.Parameters.AddWithValue("@numT", inscriptionASupprimer.NumTriath);
             reqSupprimerInscription.Parameters.AddWithValue("@numD", inscriptionASupprimer.NumDossard);
@@ -797,6 +806,7 @@ namespace Projet_Triathlon
             try
             {
                 connexionBaseTriathlon.Open();
+                reqSupprimerControle.ExecuteNonQuery();
                 reqSupprimerInscription.ExecuteNonQuery();
             }
             finally
