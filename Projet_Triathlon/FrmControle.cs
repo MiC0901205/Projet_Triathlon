@@ -12,9 +12,11 @@ namespace Projet_Triathlon
 {
     public partial class FrmControle : Form
     {
-        public FrmControle()
+        Inscription lInscription;
+        public FrmControle(Inscription uneInscription)
         {
             InitializeComponent();
+            this.lInscription = uneInscription;
         }
 
         private void FrmControle_Load(object sender, EventArgs e)
@@ -22,12 +24,72 @@ namespace Projet_Triathlon
             try
             {
                 //On charge la comboBox avec tous les produits de la base de données au chargement du formulaire
-                bindSrcControler.DataSource = ClassePasserelle.GetLesControles();
+                bindSrcInscription.DataSource = ClassePasserelle.GetLesInscriptions();
+                ((Inscription)comboBxLesInscriptions.SelectedItem).NumLicence = this.lInscription.NumLicence; // a tester
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btNouveau_Click(object sender, EventArgs e)
+        {
+            FrmAjoutInscription frmNewI = new FrmAjoutInscription();
+            frmNewI.ShowDialog();
+        }
+
+        private void btSupprimer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous réellement supprimer cette inscription ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                try
+                {
+                    ClassePasserelle.SupprimerInscription((Inscription)bindSrcInscription.Current);
+                    bindSrcInscription.RemoveCurrent();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btAjouterControle_Click(object sender, EventArgs e)
+        {
+            FrmAjoutControle frmNewC = new FrmAjoutControle();
+            frmNewC.ShowDialog();
+        }
+
+        private void btSupprimerControle_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous réellement supprimer ce controle ?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                try
+                {
+                    ClassePasserelle.SupprimerControle((Controler)bindSrcControler.Current);
+                    bindSrcControler.RemoveCurrent();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void bindSrcControler_CurrentChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bindSrcInscription_CurrentChanged(object sender, EventArgs e)
+        {
+            bindSrcControler.DataSource = ClassePasserelle.GetLesControlesByInscription((Inscription)bindSrcInscription.Current);
+        }
+
+        private void controlerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
