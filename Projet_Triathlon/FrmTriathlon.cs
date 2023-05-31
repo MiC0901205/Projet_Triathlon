@@ -54,7 +54,7 @@ namespace Projet_Triathlon
 
         private void gridInscriptions_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            FrmControle frmC  = new FrmControle();
+            FrmControle frmC  = new FrmControle((Inscription)bindSrcInscription.Current);
             frmC.ShowDialog();
         }
 

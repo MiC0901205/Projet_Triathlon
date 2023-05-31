@@ -28,14 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label lblLibelle;
+            System.Windows.Forms.Label lblTauxMax;
             this.btAnnuler = new System.Windows.Forms.Button();
             this.btValider = new System.Windows.Forms.Button();
-            this.txtTauxMax = new System.Windows.Forms.MaskedTextBox();
-            this.lblTauxMax = new System.Windows.Forms.Label();
-            this.lblLibelle = new System.Windows.Forms.Label();
             this.lblTitre = new System.Windows.Forms.Label();
             this.txtLibelle = new System.Windows.Forms.TextBox();
+            this.txtTauxMax = new System.Windows.Forms.TextBox();
+            lblLibelle = new System.Windows.Forms.Label();
+            lblTauxMax = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblLibelle
+            // 
+            lblLibelle.AutoSize = true;
+            lblLibelle.Location = new System.Drawing.Point(192, 104);
+            lblLibelle.Name = "lblLibelle";
+            lblLibelle.Size = new System.Drawing.Size(50, 16);
+            lblLibelle.TabIndex = 20;
+            lblLibelle.Text = "Libelle:";
+            // 
+            // lblTauxMax
+            // 
+            lblTauxMax.AutoSize = true;
+            lblTauxMax.Location = new System.Drawing.Point(192, 169);
+            lblTauxMax.Name = "lblTauxMax";
+            lblTauxMax.Size = new System.Drawing.Size(68, 16);
+            lblTauxMax.TabIndex = 22;
+            lblTauxMax.Text = "Taux Max:";
             // 
             // btAnnuler
             // 
@@ -63,38 +83,6 @@
             this.btValider.UseVisualStyleBackColor = false;
             this.btValider.Click += new System.EventHandler(this.btValider_Click);
             // 
-            // txtTauxMax
-            // 
-            this.txtTauxMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTauxMax.Location = new System.Drawing.Point(268, 140);
-            this.txtTauxMax.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtTauxMax.Mask = "99999";
-            this.txtTauxMax.Name = "txtTauxMax";
-            this.txtTauxMax.Size = new System.Drawing.Size(57, 23);
-            this.txtTauxMax.TabIndex = 13;
-            // 
-            // lblTauxMax
-            // 
-            this.lblTauxMax.AutoSize = true;
-            this.lblTauxMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTauxMax.Location = new System.Drawing.Point(177, 144);
-            this.lblTauxMax.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblTauxMax.Name = "lblTauxMax";
-            this.lblTauxMax.Size = new System.Drawing.Size(76, 17);
-            this.lblTauxMax.TabIndex = 12;
-            this.lblTauxMax.Text = "Taux Max :";
-            // 
-            // lblLibelle
-            // 
-            this.lblLibelle.AutoSize = true;
-            this.lblLibelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLibelle.Location = new System.Drawing.Point(177, 94);
-            this.lblLibelle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblLibelle.Name = "lblLibelle";
-            this.lblLibelle.Size = new System.Drawing.Size(57, 17);
-            this.lblLibelle.TabIndex = 11;
-            this.lblLibelle.Text = "Libelle :";
-            // 
             // lblTitre
             // 
             this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,29 +96,33 @@
             // 
             // txtLibelle
             // 
-            this.txtLibelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLibelle.Location = new System.Drawing.Point(252, 90);
-            this.txtLibelle.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtLibelle.Location = new System.Drawing.Point(270, 101);
             this.txtLibelle.Name = "txtLibelle";
-            this.txtLibelle.Size = new System.Drawing.Size(215, 23);
-            this.txtLibelle.TabIndex = 9;
+            this.txtLibelle.Size = new System.Drawing.Size(120, 22);
+            this.txtLibelle.TabIndex = 21;
+            // 
+            // txtTauxMax
+            // 
+            this.txtTauxMax.Location = new System.Drawing.Point(270, 166);
+            this.txtTauxMax.Name = "txtTauxMax";
+            this.txtTauxMax.Size = new System.Drawing.Size(120, 22);
+            this.txtTauxMax.TabIndex = 23;
             // 
             // FrmAjoutProdDopant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 319);
+            this.Controls.Add(lblLibelle);
+            this.Controls.Add(this.txtLibelle);
+            this.Controls.Add(lblTauxMax);
+            this.Controls.Add(this.txtTauxMax);
             this.Controls.Add(this.btAnnuler);
             this.Controls.Add(this.btValider);
-            this.Controls.Add(this.txtTauxMax);
-            this.Controls.Add(this.lblTauxMax);
-            this.Controls.Add(this.lblLibelle);
             this.Controls.Add(this.lblTitre);
-            this.Controls.Add(this.txtLibelle);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAjoutProdDopant";
             this.Text = "Ajout d\'un nouveau produit dopant";
-            this.Load += new System.EventHandler(this.FrmAjoutProdDopant_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,10 +132,8 @@
 
         private System.Windows.Forms.Button btAnnuler;
         private System.Windows.Forms.Button btValider;
-        private System.Windows.Forms.MaskedTextBox txtTauxMax;
-        private System.Windows.Forms.Label lblTauxMax;
-        private System.Windows.Forms.Label lblLibelle;
         private System.Windows.Forms.Label lblTitre;
         private System.Windows.Forms.TextBox txtLibelle;
+        private System.Windows.Forms.TextBox txtTauxMax;
     }
 }

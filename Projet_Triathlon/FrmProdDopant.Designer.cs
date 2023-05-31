@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label codeDopLabel;
-            System.Windows.Forms.Label libelleLabel;
-            System.Windows.Forms.Label tauxMaxLabel;
+            System.Windows.Forms.Label lblTauxMax;
+            System.Windows.Forms.Label lblLibelle;
             this.tabControlProdDopant = new System.Windows.Forms.TabControl();
             this.tabPageListe = new System.Windows.Forms.TabPage();
             this.prodDopantDataGridView = new System.Windows.Forms.DataGridView();
@@ -39,17 +38,15 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindSrcProdDopant = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageDetail = new System.Windows.Forms.TabPage();
-            this.codeDopTextBox = new System.Windows.Forms.TextBox();
-            this.libelleTextBox = new System.Windows.Forms.TextBox();
-            this.tauxMaxTextBox = new System.Windows.Forms.TextBox();
+            this.txtLibelle = new System.Windows.Forms.TextBox();
+            this.txtTauxMax = new System.Windows.Forms.TextBox();
             this.lblDetailProdDopant = new System.Windows.Forms.Label();
             this.btAnnuler = new System.Windows.Forms.Button();
             this.btEnregistrer = new System.Windows.Forms.Button();
             this.btSupprimer = new System.Windows.Forms.Button();
             this.btAjouter = new System.Windows.Forms.Button();
-            codeDopLabel = new System.Windows.Forms.Label();
-            libelleLabel = new System.Windows.Forms.Label();
-            tauxMaxLabel = new System.Windows.Forms.Label();
+            lblTauxMax = new System.Windows.Forms.Label();
+            lblLibelle = new System.Windows.Forms.Label();
             this.tabControlProdDopant.SuspendLayout();
             this.tabPageListe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prodDopantDataGridView)).BeginInit();
@@ -57,32 +54,23 @@
             this.tabPageDetail.SuspendLayout();
             this.SuspendLayout();
             // 
-            // codeDopLabel
+            // lblTauxMax
             // 
-            codeDopLabel.AutoSize = true;
-            codeDopLabel.Location = new System.Drawing.Point(247, 103);
-            codeDopLabel.Name = "codeDopLabel";
-            codeDopLabel.Size = new System.Drawing.Size(72, 16);
-            codeDopLabel.TabIndex = 18;
-            codeDopLabel.Text = "Code Dop:";
+            lblTauxMax.AutoSize = true;
+            lblTauxMax.Location = new System.Drawing.Point(243, 214);
+            lblTauxMax.Name = "lblTauxMax";
+            lblTauxMax.Size = new System.Drawing.Size(68, 16);
+            lblTauxMax.TabIndex = 22;
+            lblTauxMax.Text = "Taux Max:";
             // 
-            // libelleLabel
+            // lblLibelle
             // 
-            libelleLabel.AutoSize = true;
-            libelleLabel.Location = new System.Drawing.Point(247, 167);
-            libelleLabel.Name = "libelleLabel";
-            libelleLabel.Size = new System.Drawing.Size(50, 16);
-            libelleLabel.TabIndex = 20;
-            libelleLabel.Text = "Libelle:";
-            // 
-            // tauxMaxLabel
-            // 
-            tauxMaxLabel.AutoSize = true;
-            tauxMaxLabel.Location = new System.Drawing.Point(247, 242);
-            tauxMaxLabel.Name = "tauxMaxLabel";
-            tauxMaxLabel.Size = new System.Drawing.Size(68, 16);
-            tauxMaxLabel.TabIndex = 22;
-            tauxMaxLabel.Text = "Taux Max:";
+            lblLibelle.AutoSize = true;
+            lblLibelle.Location = new System.Drawing.Point(247, 126);
+            lblLibelle.Name = "lblLibelle";
+            lblLibelle.Size = new System.Drawing.Size(50, 16);
+            lblLibelle.TabIndex = 20;
+            lblLibelle.Text = "Libelle:";
             // 
             // tabControlProdDopant
             // 
@@ -94,6 +82,7 @@
             this.tabControlProdDopant.SelectedIndex = 0;
             this.tabControlProdDopant.Size = new System.Drawing.Size(1065, 471);
             this.tabControlProdDopant.TabIndex = 3;
+            this.tabControlProdDopant.SelectedIndexChanged += new System.EventHandler(this.tabControlProdDopant_SelectedIndexChanged);
             // 
             // tabPageListe
             // 
@@ -119,7 +108,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.prodDopantDataGridView.DataSource = this.bindSrcProdDopant;
-            this.prodDopantDataGridView.Location = new System.Drawing.Point(3, 0);
+            this.prodDopantDataGridView.Location = new System.Drawing.Point(0, 0);
             this.prodDopantDataGridView.Name = "prodDopantDataGridView";
             this.prodDopantDataGridView.ReadOnly = true;
             this.prodDopantDataGridView.RowHeadersWidth = 51;
@@ -154,12 +143,10 @@
             // tabPageDetail
             // 
             this.tabPageDetail.AutoScroll = true;
-            this.tabPageDetail.Controls.Add(codeDopLabel);
-            this.tabPageDetail.Controls.Add(this.codeDopTextBox);
-            this.tabPageDetail.Controls.Add(libelleLabel);
-            this.tabPageDetail.Controls.Add(this.libelleTextBox);
-            this.tabPageDetail.Controls.Add(tauxMaxLabel);
-            this.tabPageDetail.Controls.Add(this.tauxMaxTextBox);
+            this.tabPageDetail.Controls.Add(lblLibelle);
+            this.tabPageDetail.Controls.Add(this.txtLibelle);
+            this.tabPageDetail.Controls.Add(lblTauxMax);
+            this.tabPageDetail.Controls.Add(this.txtTauxMax);
             this.tabPageDetail.Controls.Add(this.lblDetailProdDopant);
             this.tabPageDetail.Controls.Add(this.btAnnuler);
             this.tabPageDetail.Controls.Add(this.btEnregistrer);
@@ -173,29 +160,21 @@
             this.tabPageDetail.Text = "Détail d\'un produit dopant";
             this.tabPageDetail.UseVisualStyleBackColor = true;
             // 
-            // codeDopTextBox
+            // txtLibelle
             // 
-            this.codeDopTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcProdDopant, "CodeDop", true));
-            this.codeDopTextBox.Location = new System.Drawing.Point(325, 97);
-            this.codeDopTextBox.Name = "codeDopTextBox";
-            this.codeDopTextBox.Size = new System.Drawing.Size(100, 22);
-            this.codeDopTextBox.TabIndex = 19;
+            this.txtLibelle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcProdDopant, "Libelle", true));
+            this.txtLibelle.Location = new System.Drawing.Point(325, 123);
+            this.txtLibelle.Name = "txtLibelle";
+            this.txtLibelle.Size = new System.Drawing.Size(202, 22);
+            this.txtLibelle.TabIndex = 21;
             // 
-            // libelleTextBox
+            // txtTauxMax
             // 
-            this.libelleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcProdDopant, "Libelle", true));
-            this.libelleTextBox.Location = new System.Drawing.Point(325, 164);
-            this.libelleTextBox.Name = "libelleTextBox";
-            this.libelleTextBox.Size = new System.Drawing.Size(100, 22);
-            this.libelleTextBox.TabIndex = 21;
-            // 
-            // tauxMaxTextBox
-            // 
-            this.tauxMaxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcProdDopant, "TauxMax", true));
-            this.tauxMaxTextBox.Location = new System.Drawing.Point(325, 239);
-            this.tauxMaxTextBox.Name = "tauxMaxTextBox";
-            this.tauxMaxTextBox.Size = new System.Drawing.Size(100, 22);
-            this.tauxMaxTextBox.TabIndex = 23;
+            this.txtTauxMax.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcProdDopant, "TauxMax", true));
+            this.txtTauxMax.Location = new System.Drawing.Point(321, 211);
+            this.txtTauxMax.Name = "txtTauxMax";
+            this.txtTauxMax.Size = new System.Drawing.Size(84, 22);
+            this.txtTauxMax.TabIndex = 23;
             // 
             // lblDetailProdDopant
             // 
@@ -215,6 +194,7 @@
             this.btAnnuler.TabIndex = 17;
             this.btAnnuler.Text = "Annuler";
             this.btAnnuler.UseVisualStyleBackColor = true;
+            this.btAnnuler.Click += new System.EventHandler(this.btAnnuler_Click);
             // 
             // btEnregistrer
             // 
@@ -238,6 +218,7 @@
             this.btSupprimer.TabIndex = 10;
             this.btSupprimer.Text = "Supprimer ce produit";
             this.btSupprimer.UseVisualStyleBackColor = false;
+            this.btSupprimer.Click += new System.EventHandler(this.btSupprimer_Click);
             // 
             // btAjouter
             // 
@@ -255,6 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(1071, 561);
             this.Controls.Add(this.btAjouter);
             this.Controls.Add(this.tabControlProdDopant);
@@ -286,8 +268,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.BindingSource bindSrcProdDopant;
-        private System.Windows.Forms.TextBox codeDopTextBox;
-        private System.Windows.Forms.TextBox libelleTextBox;
-        private System.Windows.Forms.TextBox tauxMaxTextBox;
+        private System.Windows.Forms.TextBox txtLibelle;
+        private System.Windows.Forms.TextBox txtTauxMax;
     }
 }

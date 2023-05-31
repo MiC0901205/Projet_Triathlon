@@ -117,7 +117,7 @@ namespace Projet_Triathlon
         {
             List<Inscription> lesInscriptions = new List<Inscription>();
 
-            SqlCommand reqGetLesInscriptions = new SqlCommand("SELECT numTriath, numDossard, dateInscription, tempsNatation, tempsCourse, tempsCyclisme, numLicence FROM Inscription;", connexionBaseTriathlon);
+            SqlCommand reqGetLesInscriptions = new SqlCommand("SELECT numTriath, numDossard, dateInscription, tempsNatation, tempsCourse, tempsCyclisme, I.numLicence, nom, prenom FROM Inscription I LEFT JOIN Triathlete T ON T.numLicence = I.numLicence;", connexionBaseTriathlon);
 
             try
             {
@@ -133,8 +133,10 @@ namespace Projet_Triathlon
                     double tempsCou = (double)readerLesInscriptions[4];
                     double tempsCycl = (double)readerLesInscriptions[5];
                     int numLicence = (int)readerLesInscriptions[6];
+                    string nom = readerLesInscriptions[7].ToString();
+                    string prenom = readerLesInscriptions[8].ToString();
 
-                    lesInscriptions.Add(new Inscription(numTriath, numDossard, numLicence, dateI, tempsNat, tempsCou, tempsCycl));
+                    lesInscriptions.Add(new Inscription(numTriath, numDossard, numLicence, dateI, tempsNat, tempsCou, tempsCycl, nom, prenom));
                 }
             }
             finally
@@ -201,7 +203,7 @@ namespace Projet_Triathlon
                     int numDoss = (int)readerLesControles[2];
                     double mesureE = (double)readerLesControles[3];
 
-                    lesControles.Add(new Controler(codeDop, numTriath, numDoss, mesureE));
+                    lesControles.Add(new Controler(numTriath, numDoss, codeDop, mesureE));
                 }
             }
             finally
@@ -314,7 +316,7 @@ namespace Projet_Triathlon
                     int numDoss = (int)readerLesControles[2];
                     double mesureE = (double)readerLesControles[3];
 
-                    lesControles.Add(new Controler(codeDop, numTriath, numDoss, mesureE));
+                    lesControles.Add(new Controler(numTriath, numDoss, codeDop, mesureE));
                 }
             }
             finally
@@ -720,11 +722,11 @@ namespace Projet_Triathlon
         /// Supprime dans la base de données le type de triathlon avec le code passé en paramètre ainsi que ses triathlons
         /// </summary>
         /// <param name="typeTriathlonASupprimer">Objet type triathlon à supprimer</param>
-        public static void SupprimerTypeTriahtlon(TypeTriathlon typeTriathlonASupprimer)///marche pas
+        public static void SupprimerTypeTriathlon(TypeTriathlon typeTriathlonASupprimer)///marche pas
         {
-            SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controler C JOIN Triathlon T ON T.numTriath = C.numTriath WHERE codeTypeT = @codeT", connexionBaseTriathlon);
+            SqlCommand reqSupprimerControle = new SqlCommand("DELETE C FROM Controler AS C JOIN Triathlon T ON T.numTriath = C.numTriath WHERE codeTypeT = @codeT", connexionBaseTriathlon);
             reqSupprimerControle.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
-            SqlCommand reqSupprimerInscription = new SqlCommand("DELETE FROM Inscription I JOIN Triathlon T ON T.numTriath = I.numTriath WHERE codeTypeT = @codeT", connexionBaseTriathlon);
+            SqlCommand reqSupprimerInscription = new SqlCommand("DELETE I FROM Inscription AS I JOIN Triathlon T ON T.numTriath = I.numTriath WHERE codeTypeT = @codeT", connexionBaseTriathlon);
             reqSupprimerInscription.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);
             SqlCommand reqSupprimerTriathlon = new SqlCommand("DELETE FROM Triathlon WHERE codeTypeT = @codeT", connexionBaseTriathlon);
             reqSupprimerTriathlon.Parameters.AddWithValue("@codeT", typeTriathlonASupprimer.CodeTypeT);

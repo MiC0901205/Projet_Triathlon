@@ -17,11 +17,6 @@ namespace Projet_Triathlon
             InitializeComponent();
         }
 
-        private void FrmAjoutProdDopant_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,22 +24,27 @@ namespace Projet_Triathlon
 
         private void btValider_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(txtLibelle.Text) || string.IsNullOrWhiteSpace(txtTauxMax.Text))
-            //{
-            //    MessageBox.Show("Vous devez remplir TOUS les champs !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        ClassePasserelle.AjouterProduitDop(txtLibelle.Text, double.Parse(txtTauxMax.Text));
-            //        this.Close();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
+            if (string.IsNullOrWhiteSpace(txtLibelle.Text) || string.IsNullOrWhiteSpace(txtTauxMax.Text))
+            {
+                MessageBox.Show("Vous devez remplir TOUS les champs !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    ProdDopant nouveauProduit = new ProdDopant(txtLibelle.Text, Convert.ToDouble(txtTauxMax.Text));
+
+                    ClassePasserelle.AjouterProduitDop(nouveauProduit);
+
+                    MessageBox.Show("L'ajout du produit a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

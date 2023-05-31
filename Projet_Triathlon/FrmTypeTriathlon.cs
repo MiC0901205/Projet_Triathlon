@@ -58,7 +58,7 @@ namespace Projet_Triathlon
             {
                 try
                 {
-                    ClassePasserelle.SupprimerTypeTriahtlon((TypeTriathlon)bindSrcTypeTriathlon.Current);
+                    ClassePasserelle.SupprimerTypeTriathlon((TypeTriathlon)bindSrcTypeTriathlon.Current);
                     bindSrcTypeTriathlon.RemoveCurrent();
                 }
                 catch (Exception ex)

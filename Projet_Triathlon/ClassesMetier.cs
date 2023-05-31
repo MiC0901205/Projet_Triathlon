@@ -9,7 +9,7 @@ namespace Projet_Triathlon
     public class Triathlete
     {
         private DateTime dateNaissance;
-        private int numLicence, numDossard, cp;
+        private int numLicence, cp;
         private string nom, adresse, prenom, ville;
 
         public Triathlete(int unNumLicence, int unCp, string unNom, string unPrenom, string uneAdresse, string uneVille, DateTime uneDateNaissance)
@@ -23,8 +23,17 @@ namespace Projet_Triathlon
             this.DateNaissance = uneDateNaissance;
         }
 
+        public Triathlete(int unCp, string unNom, string unPrenom, string uneAdresse, string uneVille, DateTime uneDateNaissance)
+        {
+            this.Cp = unCp;
+            this.Nom = unNom;
+            this.Prenom = unPrenom;
+            this.Adresse = uneAdresse;
+            this.Ville = uneVille;
+            this.DateNaissance = uneDateNaissance;
+        }
+
         public int NumLicence { get => numLicence; set => numLicence = value; }
-        public int NumDossard { get => numDossard; set => numDossard = value; }
         public int Cp { get => cp; set => cp = value; }
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
@@ -98,6 +107,19 @@ namespace Projet_Triathlon
             this.TempsTotal = tempsTotal;
         }
 
+        public Inscription(int unNumTriath, int unNumDossard, int unNumLicence, DateTime uneDateInscription, double unTempsNatation, double unTempsCourse, double unTempsCyclisme, string unNom, string unPrenom)
+        {
+            this.NumTriath = unNumTriath;
+            this.NumDossard = unNumDossard;
+            this.NumLicence = unNumLicence;
+            this.DateInscription = uneDateInscription;
+            this.TempsNatation = unTempsNatation;
+            this.TempsCourse = unTempsCourse;
+            this.TempsCyclisme = unTempsCyclisme;
+            this.Nom = unNom;
+            this.Prenom = unPrenom;
+        }
+
         public int NumTriath { get => numTriath; set => numTriath = value; }
         public int NumDossard { get => numDossard; set => numDossard = value; }
         public int NumLicence { get => numLicence; set => numLicence = value; }
@@ -111,7 +133,7 @@ namespace Projet_Triathlon
 
         public override string ToString()
         {
-            return this.NumTriath + "." + this.NumDossard;
+            return this.NumTriath + "." + this.NumDossard + " " + this.Nom + " " + this.Prenom;
         }
     }
 
@@ -155,6 +177,13 @@ namespace Projet_Triathlon
             this.Libelle = unLibelle;
             this.TauxMax = unTauxMax;
         }
+
+        public ProdDopant(string unLibelle, double unTauxMax)
+        {
+            this.Libelle = unLibelle;
+            this.TauxMax = unTauxMax;
+        }
+
 
         public override string ToString()
         {
