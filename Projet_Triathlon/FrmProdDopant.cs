@@ -103,7 +103,6 @@ namespace Projet_Triathlon
         {
             bindSrcProdDopant.CancelEdit();
             bindSrcProdDopant.ResetBindings(false);
-            prodDopantDataGridView.DataSource = bindSrcProdDopant;
             ProdDopant temp = (ProdDopant)bindSrcProdDopant.Current;
             unProduit = new ProdDopant(temp.CodeDop, temp.Libelle, temp.TauxMax);
         }

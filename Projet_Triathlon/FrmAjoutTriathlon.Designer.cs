@@ -36,7 +36,7 @@
             this.lblLieu = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblTitre = new System.Windows.Forms.Label();
-            this.txtLibelle = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
             this.comboBxLesTypesTriath = new System.Windows.Forms.ComboBox();
             this.lblTypeTriath = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -45,61 +45,64 @@
             // 
             this.lblDateCompet.AutoSize = true;
             this.lblDateCompet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateCompet.Location = new System.Drawing.Point(110, 154);
-            this.lblDateCompet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateCompet.Location = new System.Drawing.Point(147, 190);
+            this.lblDateCompet.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDateCompet.Name = "lblDateCompet";
-            this.lblDateCompet.Size = new System.Drawing.Size(93, 13);
+            this.lblDateCompet.Size = new System.Drawing.Size(122, 17);
             this.lblDateCompet.TabIndex = 47;
             this.lblDateCompet.Text = "Date compétition :";
             // 
             // dateTimeCompet
             // 
-            this.dateTimeCompet.Location = new System.Drawing.Point(210, 154);
+            this.dateTimeCompet.Location = new System.Drawing.Point(280, 190);
+            this.dateTimeCompet.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeCompet.Name = "dateTimeCompet";
-            this.dateTimeCompet.Size = new System.Drawing.Size(200, 20);
+            this.dateTimeCompet.Size = new System.Drawing.Size(265, 22);
             this.dateTimeCompet.TabIndex = 46;
             // 
             // txtLieu
             // 
             this.txtLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLieu.Location = new System.Drawing.Point(166, 108);
-            this.txtLieu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLieu.Location = new System.Drawing.Point(221, 133);
+            this.txtLieu.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtLieu.Name = "txtLieu";
-            this.txtLieu.Size = new System.Drawing.Size(99, 20);
+            this.txtLieu.Size = new System.Drawing.Size(131, 23);
             this.txtLieu.TabIndex = 40;
             // 
             // btAnnuler
             // 
             this.btAnnuler.BackColor = System.Drawing.Color.OrangeRed;
             this.btAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAnnuler.Location = new System.Drawing.Point(287, 264);
-            this.btAnnuler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btAnnuler.Location = new System.Drawing.Point(383, 325);
+            this.btAnnuler.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btAnnuler.Name = "btAnnuler";
-            this.btAnnuler.Size = new System.Drawing.Size(80, 34);
+            this.btAnnuler.Size = new System.Drawing.Size(107, 42);
             this.btAnnuler.TabIndex = 39;
             this.btAnnuler.Text = "Annuler";
             this.btAnnuler.UseVisualStyleBackColor = false;
+            this.btAnnuler.Click += new System.EventHandler(this.btAnnuler_Click);
             // 
             // btValider
             // 
             this.btValider.BackColor = System.Drawing.Color.LimeGreen;
             this.btValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btValider.Location = new System.Drawing.Point(130, 264);
-            this.btValider.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btValider.Location = new System.Drawing.Point(173, 325);
+            this.btValider.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btValider.Name = "btValider";
-            this.btValider.Size = new System.Drawing.Size(80, 34);
+            this.btValider.Size = new System.Drawing.Size(107, 42);
             this.btValider.TabIndex = 38;
             this.btValider.Text = "Valider";
             this.btValider.UseVisualStyleBackColor = false;
+            this.btValider.Click += new System.EventHandler(this.btValider_Click);
             // 
             // lblLieu
             // 
             this.lblLieu.AutoSize = true;
             this.lblLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLieu.Location = new System.Drawing.Point(110, 111);
-            this.lblLieu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLieu.Location = new System.Drawing.Point(147, 137);
+            this.lblLieu.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLieu.Name = "lblLieu";
-            this.lblLieu.Size = new System.Drawing.Size(33, 13);
+            this.lblLieu.Size = new System.Drawing.Size(43, 17);
             this.lblLieu.TabIndex = 36;
             this.lblLieu.Text = "Lieu :";
             // 
@@ -107,59 +110,59 @@
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(110, 72);
-            this.lblNom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNom.Location = new System.Drawing.Point(147, 89);
+            this.lblNom.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(35, 13);
+            this.lblNom.Size = new System.Drawing.Size(45, 17);
             this.lblNom.TabIndex = 35;
             this.lblNom.Text = "Nom :";
             // 
             // lblTitre
             // 
             this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitre.Location = new System.Drawing.Point(13, 19);
-            this.lblTitre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitre.Location = new System.Drawing.Point(17, 23);
+            this.lblTitre.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitre.Name = "lblTitre";
-            this.lblTitre.Size = new System.Drawing.Size(325, 32);
+            this.lblTitre.Size = new System.Drawing.Size(433, 39);
             this.lblTitre.TabIndex = 34;
             this.lblTitre.Text = "Saisir les informations du nouveau triathlon :";
             this.lblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtLibelle
+            // txtNom
             // 
-            this.txtLibelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLibelle.Location = new System.Drawing.Point(166, 69);
-            this.txtLibelle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtLibelle.Name = "txtLibelle";
-            this.txtLibelle.Size = new System.Drawing.Size(128, 20);
-            this.txtLibelle.TabIndex = 33;
+            this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNom.Location = new System.Drawing.Point(221, 85);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(169, 23);
+            this.txtNom.TabIndex = 33;
             // 
             // comboBxLesTypesTriath
             // 
             this.comboBxLesTypesTriath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBxLesTypesTriath.FormattingEnabled = true;
-            this.comboBxLesTypesTriath.Location = new System.Drawing.Point(197, 203);
-            this.comboBxLesTypesTriath.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBxLesTypesTriath.Location = new System.Drawing.Point(263, 250);
+            this.comboBxLesTypesTriath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBxLesTypesTriath.Name = "comboBxLesTypesTriath";
-            this.comboBxLesTypesTriath.Size = new System.Drawing.Size(201, 21);
+            this.comboBxLesTypesTriath.Size = new System.Drawing.Size(267, 24);
             this.comboBxLesTypesTriath.TabIndex = 48;
             // 
             // lblTypeTriath
             // 
             this.lblTypeTriath.AutoSize = true;
             this.lblTypeTriath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeTriath.Location = new System.Drawing.Point(112, 206);
-            this.lblTypeTriath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTypeTriath.Location = new System.Drawing.Point(149, 254);
+            this.lblTypeTriath.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTypeTriath.Name = "lblTypeTriath";
-            this.lblTypeTriath.Size = new System.Drawing.Size(77, 13);
+            this.lblTypeTriath.Size = new System.Drawing.Size(103, 17);
             this.lblTypeTriath.TabIndex = 49;
             this.lblTypeTriath.Text = "Type triathlon :";
             // 
             // FrmAjoutTriathlon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lblTypeTriath);
             this.Controls.Add(this.comboBxLesTypesTriath);
             this.Controls.Add(this.lblDateCompet);
@@ -170,7 +173,8 @@
             this.Controls.Add(this.lblLieu);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblTitre);
-            this.Controls.Add(this.txtLibelle);
+            this.Controls.Add(this.txtNom);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAjoutTriathlon";
             this.Text = "Ajout d\'un nouveau triathlon";
             this.ResumeLayout(false);
@@ -188,7 +192,7 @@
         private System.Windows.Forms.Label lblLieu;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblTitre;
-        private System.Windows.Forms.TextBox txtLibelle;
+        private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.ComboBox comboBxLesTypesTriath;
         private System.Windows.Forms.Label lblTypeTriath;
     }

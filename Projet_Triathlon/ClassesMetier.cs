@@ -63,6 +63,14 @@ namespace Projet_Triathlon
             this.CodeTypeT = unCodeTypeT;
         }
 
+        public Triathlon(string unNom, string unLieu, DateTime uneDateCompet, int unCodeTypeT)
+        {
+            this.Nom = unNom;
+            this.Lieu = unLieu;
+            this.DateCompet = uneDateCompet;
+            this.CodeTypeT = unCodeTypeT;
+        }
+
         public int NumTriath { get => numTriath; set => numTriath = value; }
         public int CodeTypeT { get => codeTypeT; set => codeTypeT = value; }
         public string Nom { get => nom; set => nom = value; }
@@ -120,6 +128,13 @@ namespace Projet_Triathlon
             this.Prenom = unPrenom;
         }
 
+        public Inscription(int unNumTriath, int unNumLicence, DateTime uneDateInscription)
+        {
+            this.NumTriath = unNumTriath;
+            this.NumLicence = unNumLicence;
+            this.dateInscription = uneDateInscription;
+        }
+
         public int NumTriath { get => numTriath; set => numTriath = value; }
         public int NumDossard { get => numDossard; set => numDossard = value; }
         public int NumLicence { get => numLicence; set => numLicence = value; }
@@ -149,6 +164,8 @@ namespace Projet_Triathlon
             this.CodeDop = unCodeDop;
             this.MesureEtablie = uneMesureEtablie;
         }
+
+
 
         public int NumTriath { get => numTriath; set => numTriath = value; }
         public int NumDossard { get => numDossard; set => numDossard = value; }
@@ -199,6 +216,15 @@ namespace Projet_Triathlon
         public TypeTriathlon(int unCodeTypeT, string uneDesignation, string unNom, int uneDistanceCyclisme, int uneDistanceNatation, int uneDistanceCourse)
         {
             this.CodeTypeT = unCodeTypeT;
+            this.Designation = uneDesignation;
+            this.Nom = unNom;
+            this.DistanceCyclisme = uneDistanceCyclisme;
+            this.DistanceNatation = uneDistanceNatation;
+            this.DistanceCourse = uneDistanceCourse;
+        }
+
+        public TypeTriathlon(string uneDesignation, string unNom, int uneDistanceCyclisme, int uneDistanceNatation, int uneDistanceCourse)
+        {
             this.Designation = uneDesignation;
             this.Nom = unNom;
             this.DistanceCyclisme = uneDistanceCyclisme;

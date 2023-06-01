@@ -74,6 +74,7 @@ namespace Projet_Triathlon
                 {
                     ClassePasserelle.SupprimerControle((Controler)bindSrcControler.Current);
                     bindSrcControler.RemoveCurrent();
+                    MessageBox.Show("La suppression du contrôle a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 catch (Exception ex)
                 {

@@ -157,6 +157,7 @@
             this.gridClassement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridClassement.Size = new System.Drawing.Size(729, 377);
             this.gridClassement.TabIndex = 0;
+            this.gridClassement.SelectionChanged += new System.EventHandler(this.gridClassement_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -224,7 +225,6 @@
             // bindSrcInscription
             // 
             this.bindSrcInscription.DataSource = typeof(Projet_Triathlon.Inscription);
-            this.bindSrcInscription.CurrentItemChanged += new System.EventHandler(this.bindSrcInscription_CurrentItemChanged);
             // 
             // grpbxTemps
             // 

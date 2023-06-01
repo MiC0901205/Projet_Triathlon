@@ -357,6 +357,7 @@
             this.btNouveau.TabIndex = 7;
             this.btNouveau.Text = "Nouveau type de triathlon";
             this.btNouveau.UseVisualStyleBackColor = false;
+            this.btNouveau.Click += new System.EventHandler(this.btNouveau_Click);
             // 
             // comboBxLesTypesTriath
             // 
@@ -377,7 +378,7 @@
             this.Controls.Add(this.grpbxLesTriathlons);
             this.Controls.Add(this.grpbxDetailTypeTriath);
             this.Controls.Add(this.grpbxLesTypesTriath);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTypeTriathlon";
             this.Text = "Gestion des types de triathlon";
             this.Load += new System.EventHandler(this.FrmTypeTriathlon_Load);

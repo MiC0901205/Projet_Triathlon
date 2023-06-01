@@ -509,19 +509,6 @@ namespace Projet_Triathlon
             }
         }
 
-
-        /// A FAIRE
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name=""></param>
-        public static void AjouterTemps()
-        {
-
-        }
-
-
-
         /// <summary>
         /// Modifie dans la base de données le produit dopant correspondant à l'identifiant avec les valeurs passées en paramètre
         /// </summary>
@@ -776,10 +763,11 @@ namespace Projet_Triathlon
         /// <param name="controleASupprimer">Objet controle à supprimer</param>
         public static void SupprimerControle(Controler controleASupprimer)
         {
-            SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controle WHERE codeDop = @codeD and numTriath = @numT and numDossard = @numD", connexionBaseTriathlon);
+            SqlCommand reqSupprimerControle = new SqlCommand("DELETE FROM Controler WHERE codeDop = @codeD and numTriath = @numT and numDossard = @numD and mesureEtablie = @mesureE", connexionBaseTriathlon);
             reqSupprimerControle.Parameters.AddWithValue("@codeD", controleASupprimer.CodeDop);
             reqSupprimerControle.Parameters.AddWithValue("@numT", controleASupprimer.NumTriath);
             reqSupprimerControle.Parameters.AddWithValue("@numD", controleASupprimer.NumDossard);
+            reqSupprimerControle.Parameters.AddWithValue("@mesureE", controleASupprimer.MesureEtablie);
 
             try
             {

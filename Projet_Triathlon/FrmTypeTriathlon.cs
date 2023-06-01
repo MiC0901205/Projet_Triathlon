@@ -43,6 +43,7 @@ namespace Projet_Triathlon
                 try
                 {
                     ClassePasserelle.SupprimerTriathlon((Triathlon)bindSrcTriathlon.Current);
+                    MessageBox.Show("La suppression du triathlon a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     bindSrcTriathlon.RemoveCurrent();
                 }
                 catch (Exception ex)
@@ -59,6 +60,7 @@ namespace Projet_Triathlon
                 try
                 {
                     ClassePasserelle.SupprimerTypeTriathlon((TypeTriathlon)bindSrcTypeTriathlon.Current);
+                    MessageBox.Show("La suppression du type de triathlon a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     bindSrcTypeTriathlon.RemoveCurrent();
                 }
                 catch (Exception ex)
@@ -81,6 +83,12 @@ namespace Projet_Triathlon
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btNouveau_Click(object sender, EventArgs e)
+        {
+            FrmAjoutTypeTriathlon frmNewT = new FrmAjoutTypeTriathlon();
+            frmNewT.ShowDialog();
         }
     }
 }

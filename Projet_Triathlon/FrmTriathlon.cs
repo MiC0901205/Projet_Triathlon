@@ -86,6 +86,7 @@ namespace Projet_Triathlon
                 try
                 {
                     ClassePasserelle.SupprimerTriathlon((Triathlon)bindSrcTriathlon.Current);
+                    MessageBox.Show("La suppression du triathlon a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     bindSrcTriathlon.RemoveCurrent();
                 }
                 catch (Exception ex)
@@ -108,6 +109,7 @@ namespace Projet_Triathlon
                 try
                 {
                     ClassePasserelle.SupprimerInscription((Inscription)bindSrcInscription.Current);
+                    MessageBox.Show("La suppression de l'inscription a bien été effectuée !", "Réussie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     bindSrcInscription.RemoveCurrent();
                 }
                 catch (Exception ex)

@@ -114,6 +114,8 @@ namespace Projet_Triathlon
 
         private void tabControlTriathlete_SelectedIndexChanged(object sender, EventArgs e)
         {
+            bindSrcTriathlete.CancelEdit();
+            bindSrcTriathlete.ResetBindings(false);
             Triathlete temp = (Triathlete)bindSrcTriathlete.Current;
             unTriathlete = new Triathlete(temp.Cp, temp.Nom, temp.Prenom, temp.Adresse, temp.Ville, temp.DateNaissance);
         }
